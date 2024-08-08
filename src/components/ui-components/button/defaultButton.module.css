@@ -1,0 +1,23 @@
+
+.button {
+    border-radius: 4px;
+    background: #F14F4F;
+    display: flex;
+    padding: 20px 50px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    color: #FFF;
+    /*font-family: Jost;*/
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px; /* 137.5% */
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.svg {
+    padding: 16px;
+}

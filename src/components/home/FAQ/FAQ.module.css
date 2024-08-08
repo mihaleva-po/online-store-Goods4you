@@ -1,0 +1,28 @@
+.faq {
+    background: #484283;
+    display: flex;
+    padding: 60px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 27px;
+    align-self: stretch;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    /*gap: 20px;*/
+}
+
+.container h1 {
+    color: #FFF;
+    /*font-family: Jost;*/
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 56px; /* 155.556% */
+    align-self: stretch;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #FFFFFF;
+    margin-bottom: 0;
+}

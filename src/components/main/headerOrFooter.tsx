@@ -16,7 +16,7 @@ const HeaderOrFooter = ({isHeader}: props) => {
                     {
                         isHeader &&
                         <>
-                            <a className={styles.cart} href="">
+                            <a className={styles.cart} href="/cart">
                                 Cart
                                 <div className={styles.blockCart}>
                                     <CartSVG/>

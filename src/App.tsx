@@ -11,6 +11,8 @@ import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "./components/home/home.tsx";
 import Header from "./components/header/header.tsx";
 import Footer from "./components/footer/footer.tsx";
+import OneProduct from "./components/oneProduct/oneProduct.tsx";
+import MyCart from "./components/myCart/myCart.tsx";
 
 // import Catalog from "./components/catalog/catalog.tsx";
 
@@ -24,14 +26,22 @@ function App() {
             element: <Home/>,
             errorElement: <ErrorPage/>
         },
+        {
+            path: "/product/1",
+            element: <OneProduct/>,
+            errorElement: <ErrorPage/>
+        },
+        {
+            path: "/cart",
+            element: <MyCart/>,
+            errorElement: <ErrorPage/>
+        },
     ]);
 
     return (
-        <div
-            // style={{height:'100vh', display: 'flex', flexDirection:'column', justifyContent:'space-between'}}
-        >
+        <div className={"app"}>
             <Header/>
-            <main style={{height:'100%'}}>
+            <main className={"main"}>
                 <RouterProvider router={router}/>
             </main>
             <Footer/>

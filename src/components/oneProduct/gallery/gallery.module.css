@@ -1,0 +1,30 @@
+.mainPhoto {
+    height: 520px;
+    width: 520px;
+    border-radius: 4px;
+}
+
+.blockImg {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.galleryPhoto {
+    display: flex;
+    gap: 20px;
+}
+
+.smallPhoto {
+    border-radius: 4px;
+    width: 70px;
+    height: 70px;
+    box-sizing: border-box;
+}
+
+.activePhoto {
+    border-radius: 4px;
+    border: 3px solid #C4C4C4;
+}
+
+

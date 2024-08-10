@@ -1,6 +1,6 @@
 import styles from './hero.module.css';
 import DefaultButton from "../../ui-components/button/defaultButton.tsx";
-// import DefaultButton from "../../ui-components/button/defaultButton.tsx";
+
 
 export const Hero = () => {
     return (

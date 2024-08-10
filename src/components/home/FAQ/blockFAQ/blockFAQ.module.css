@@ -1,6 +1,5 @@
 .question {
     color: #FFF;
-    /*font-family: Jost;*/
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -11,11 +10,10 @@
     width: 880px;
     align-self: stretch;
     color: #FFF;
-    /*font-family: Jost;*/
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 26px; /* 162.5% */
+    line-height: 26px;
 }
 
 .container {
@@ -28,7 +26,6 @@
 }
 
 .blockques {
-    /*padding: 20px 0;*/
     display: flex;
     justify-content: space-between;
 }

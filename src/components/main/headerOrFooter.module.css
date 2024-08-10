@@ -7,7 +7,6 @@
 
 .container h1 {
     color: #FFF;
-    /*font-family: Jost;*/
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
@@ -20,9 +19,8 @@
     gap: 40px;
 }
 
-.container a {
+.container a, .nameUser{
     color: #FFF;
-    /*font-family: Jost;*/
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -58,7 +56,6 @@
 .circle p {
     color: #FFF;
     text-align: center;
-    /*font-family: Jost;*/
     font-size: 8px;
     font-style: normal;
     font-weight: 400;

@@ -1,10 +1,7 @@
 import DefaultButton from "../../../ui-components/button/defaultButton.tsx";
 import CardSVG from "../../../svg/cartSVG.tsx";
-// import card from ''
 import styles from './card.module.css';
 import product from '../../../../assets/images/product.png';
-// import MinusSvg from "../../../svg/minusSVG.tsx";
-// import PlusSvg from "../../../svg/plusSVG.tsx";
 import {useNavigate} from "react-router-dom";
 import ChangeCountItems from "../../../ui-components/changeCountItems/changeCountItems.tsx";
 

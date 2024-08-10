@@ -1,5 +1,4 @@
 import styles from './header.module.css';
-// import CartSVG from "../svg/cartSVG.tsx";
 import HeaderOrFooter from "../main/headerOrFooter.tsx";
 
 const Header = () => {

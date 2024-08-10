@@ -7,7 +7,6 @@
 
 .nameCount {
     color: #B2B5BB;
-    /*font-family: Jost;*/
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -16,7 +15,6 @@
 
 .count {
     color: #444B58;
-    /*font-family: Jost;*/
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
@@ -25,7 +23,6 @@
 
 .namePrice {
     color: #B2B5BB;
-    /*font-family: Jost;*/
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -39,7 +36,6 @@
 
 .price {
     color: #444B58;
-    /*font-family: Jost;*/
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
@@ -48,7 +44,6 @@
 
 .nameTotalPrice {
     color: #B2B5BB;
-    /*font-family: Jost;*/
     font-size: 24px;
     font-style: normal;
     font-weight: 600;
@@ -57,7 +52,6 @@
 
 .total {
     color: #444B58;
-    /*font-family: Jost;*/
     font-size: 24px;
     font-style: normal;
     font-weight: 700;

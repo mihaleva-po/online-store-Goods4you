@@ -1,4 +1,3 @@
-// import {Hero} from "./hero/hero.tsx";
 import Catalog from "../catalog/catalog.tsx";
 import Faq from "./FAQ/FAQ.tsx";
 import {Hero} from "./hero/hero.tsx";

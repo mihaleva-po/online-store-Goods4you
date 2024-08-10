@@ -17,7 +17,6 @@
 
 .mainBlock h1 {
     color: #444B58;
-    /*font-family: Jost;*/
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
@@ -34,7 +33,6 @@
 
 .blockRate p {
     color: #646464;
-    /*font-family: Jost;*/
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -43,7 +41,6 @@
 
 .availability {
     color: #F14F4F;
-    /*font-family: Jost;*/
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
@@ -59,7 +56,6 @@
 
 .description {
     color: #444B58;
-    /*font-family: Jost;*/
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -76,7 +72,6 @@
 
 .warranty p {
     color: #646464;
-    /*font-family: Jost;*/
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -102,7 +97,6 @@
 
 .currentPrice {
     color: #444B58;
-    /*font-family: Jost;*/
     font-size: 36px;
     font-style: normal;
     font-weight: 600;
@@ -111,7 +105,6 @@
 
 .oldPrice {
     color: #646464;
-    /*font-family: Jost;*/
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -131,7 +124,6 @@
 
 .discount p {
     color: #444B58;
-    /*font-family: Jost;*/
     font-size: 16px;
     font-style: normal;
     /*font-weight: 400;*/

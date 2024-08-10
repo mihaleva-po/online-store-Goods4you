@@ -2,7 +2,7 @@
 import styles from './defaultButton.module.css';
 import {ReactNode} from "react";
 
-// import card from '../../../assets/images/imgForBtn/card.svg';
+
 interface propsFace {
     text?: string,
     svg?: ReactNode

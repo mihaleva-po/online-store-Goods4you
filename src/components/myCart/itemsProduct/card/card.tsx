@@ -1,7 +1,6 @@
 import styles from './card.module.css';
 import product from '../../../../assets/images/oneProduct.png';
 import ChangeCountItems from "../../../ui-components/changeCountItems/changeCountItems.tsx";
-// import {useState} from "react";
 import DefaultButton from "../../../ui-components/button/defaultButton.tsx";
 import CartSVG from "../../../svg/cartSVG.tsx";
 

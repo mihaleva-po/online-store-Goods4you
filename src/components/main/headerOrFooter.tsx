@@ -11,8 +11,8 @@ const HeaderOrFooter = ({isHeader}: props) => {
             <div className={styles.container}>
                 <h1>Goods4you</h1>
                 <nav>
-                    <a href="">Catalog</a>
-                    <a href="">FAQ</a>
+                    <a href="/t">Catalog</a>
+                    <a href="/t">FAQ</a>
                     {
                         isHeader &&
                         <>
@@ -25,7 +25,7 @@ const HeaderOrFooter = ({isHeader}: props) => {
                                     </div>
                                 </div>
                             </a>
-                            <a href="">Johnson Smith</a>
+                            <p className={styles.nameUser}>Johnson Smith</p>
                         </>
 
                     }

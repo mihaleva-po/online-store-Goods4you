@@ -1,0 +1,33 @@
+.errorPage {
+    display: flex;
+    justify-content: center;
+    /*background: #484283;*/
+    /*height: 100vh;*/
+    /*flex: 1;*/
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container h1 {
+font-size: 150px;
+    color: #484283;
+    margin-bottom: 0;
+}
+
+.container p {
+    color: #484283;
+    font-size: 40px;
+}
+
+.container img {
+    height: 500px;
+    width: auto;
+}
+
+.blockError {
+    text-align: center;
+}

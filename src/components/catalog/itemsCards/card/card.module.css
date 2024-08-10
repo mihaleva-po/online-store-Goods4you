@@ -43,4 +43,32 @@
 .section img {
     height: 300px;
     width: 370px;
+    cursor: pointer;
+}
+
+
+
+.showDetails {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+    border-radius: 4px;
+    width: 370px;
+    height: 300px;
+    justify-content: center;
+    background: rgba(135, 135, 135, 0.25);
+    position: absolute;
+    text-align: center;
+
+}
+
+.showDetails p {
+    color: rgba(255, 255, 255, 0.60);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
 }

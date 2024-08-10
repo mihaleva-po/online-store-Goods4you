@@ -22,6 +22,10 @@ const Card = ({items, price}:propsFace) => {
     return (
         <section onClick={onClickCard} className={styles.section}>
             <img src={product} alt="productImg"/>
+            <div className={styles.showDetails}>
+                <p>Show details</p>
+            </div>
+
             <div className={styles.desc}>
                 <div>
                     <p className={styles.title}>Essence Mascara Lash Princess</p>

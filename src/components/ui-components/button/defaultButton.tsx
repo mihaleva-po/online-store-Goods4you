@@ -5,7 +5,7 @@ import {ReactNode} from "react";
 
 interface propsFace {
     text?: string,
-    svg?: ReactNode
+    svg?: ReactNode,
 }
 
 const DefaultButton = ({text, svg}:propsFace) => {

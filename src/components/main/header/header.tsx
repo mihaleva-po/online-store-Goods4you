@@ -1,5 +1,5 @@
 import styles from './header.module.css';
-import HeaderOrFooter from "../main/headerOrFooter.tsx";
+import HeaderOrFooter from "../headerOrFooter.tsx";
 
 const Header = () => {
     return (

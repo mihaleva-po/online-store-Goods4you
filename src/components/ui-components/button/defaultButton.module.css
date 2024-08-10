@@ -1,5 +1,6 @@
 
 .button {
+    position: relative;
     border-radius: 4px;
     background: #F14F4F;
     display: flex;
@@ -15,6 +16,14 @@
     border: none;
     cursor: pointer;
     z-index: 1;
+}
+
+.button:hover {
+    background: #8C2828;
+}
+
+.button:disabled {
+    background: #F8AFAF;
 }
 
 .svg {

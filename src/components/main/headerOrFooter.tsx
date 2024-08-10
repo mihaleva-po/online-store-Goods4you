@@ -1,18 +1,25 @@
 import styles from './headerOrFooter.module.css';
 import CartSVG from "../svg/cartSVG.tsx";
+import {useNavigate} from "react-router-dom";
 
 interface props {
     isHeader: boolean
 }
 
 const HeaderOrFooter = ({isHeader}: props) => {
+
+    // const navigate = useNavigate();
+
     return (
         <div>
             <div className={styles.container}>
-                <h1>Goods4you</h1>
-                <nav>
-                    <a href="/t">Catalog</a>
-                    <a href="/t">FAQ</a>
+                <a className={styles.aLogo} href={"/"}>
+                    <h1>Goods4you</h1>
+                </a>
+
+                <nav className={styles.navigation}>
+                    <a href="/#catalog">Catalog</a>
+                    <a href="/#faq">FAQ</a>
                     {
                         isHeader &&
                         <>

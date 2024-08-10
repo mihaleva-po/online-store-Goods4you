@@ -27,7 +27,7 @@ const Faq = () => {
         'account on our website and go to the "My Orders" section to track your delivery status.';
 
     return (
-        <section className={styles.faq}>
+        <section id="faq" className={styles.faq}>
             <div className={styles.container}>
                 <h1>FAQ</h1>
                 {

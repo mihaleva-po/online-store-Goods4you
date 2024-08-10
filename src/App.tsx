@@ -2,10 +2,11 @@ import './App.css'
 import ErrorPage from "./routes/errorPage/errorPage.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "./components/home/home.tsx";
-import Header from "./components/header/header.tsx";
-import Footer from "./components/footer/footer.tsx";
+import Header from "./components/main/header/header.tsx";
+import Footer from "./components/main/footer/footer.tsx";
 import OneProduct from "./components/oneProduct/oneProduct.tsx";
 import MyCart from "./components/myCart/myCart.tsx";
+
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
 
     return (
         <div className={"app"}>
+
             <Header/>
             <main className={"main"}>
                 <RouterProvider router={router}/>

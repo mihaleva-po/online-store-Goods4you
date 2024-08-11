@@ -1,6 +1,6 @@
 import styles from './headerOrFooter.module.css';
 import CartSVG from "../svg/cartSVG.tsx";
-import {useNavigate} from "react-router-dom";
+
 
 interface props {
     isHeader: boolean
@@ -8,10 +8,8 @@ interface props {
 
 const HeaderOrFooter = ({isHeader}: props) => {
 
-    // const navigate = useNavigate();
-
     return (
-        <div>
+        <section>
             <div className={styles.container}>
                 <a className={styles.aLogo} href={"/"}>
                     <h1>Goods4you</h1>
@@ -39,7 +37,7 @@ const HeaderOrFooter = ({isHeader}: props) => {
 
                 </nav>
             </div>
-        </div>
+        </section>
     );
 };
 

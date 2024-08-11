@@ -10,10 +10,10 @@ const OneProduct = () => {
             <Helmet>
                 <title>Essence Mascara Lash Princess | Goods4you</title>
             </Helmet>
-            <div className={styles.container}>
+            <article className={styles.container}>
                 <Gallery/>
                 <DescProduct/>
-            </div>
+            </article>
         </section>
     );
 };

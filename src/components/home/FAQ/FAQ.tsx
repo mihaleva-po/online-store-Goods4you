@@ -8,17 +8,17 @@ const Faq = () => {
         {
             question: 'How can I track the status of my order?',
             answer: '',
-            isOpen: false
+            // isOpen: false
             },
         {
             question: 'What payment methods do you accept?',
             answer: '',
-            isOpen: true
+            // isOpen: true
         },
         {
             question: 'How can I return or exchange an item?',
             answer: '',
-            isOpen: true
+            // isOpen: true
         },
     ];
 
@@ -32,9 +32,9 @@ const Faq = () => {
                 <h1>FAQ</h1>
                 {
                     data.map((el, i) => (
-                        <div key={i}>
-                            <BlockFaq isOpen={el.isOpen} textQues={el.question} textAnswer={answer}/>
-                        </div>
+                        <article key={i}>
+                            <BlockFaq textQues={el.question} textAnswer={answer}/>
+                        </article>
                     ))
                 }
 

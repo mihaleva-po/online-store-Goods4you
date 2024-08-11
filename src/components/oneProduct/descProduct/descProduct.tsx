@@ -5,13 +5,13 @@ import DefaultButton from "../../ui-components/button/defaultButton.tsx";
 const DescProduct = () => {
     return (
         <section className={styles.container}>
-            <div className={styles.mainBlock}>
+            <article className={styles.mainBlock}>
                 <h1>Essence Mascara Lash Princess</h1>
                 <div className={styles.blockRate}>
                     <Rate/>
                     <p>electronics, selfie accessories</p>
                 </div>
-            </div>
+            </article>
             <p className={styles.availability}>In Stock - Only 5 left!</p>
             <p className={styles.description}>The Essence Mascara Lash Princess is a
                 popular mascara known for its volumizing and lengthening effects.
@@ -20,7 +20,7 @@ const DescProduct = () => {
                 <p>1 month warranty</p>
                 <p>Ships in 1 month</p>
             </div>
-            <div className={styles.greyBlock}>
+            <article className={styles.greyBlock}>
                 <div className={styles.blockPrice}>
                     <div className={styles.price}>
                         <p className={styles.currentPrice}>$7.17</p>
@@ -33,7 +33,7 @@ const DescProduct = () => {
                     </div>
                 </div>
                 <DefaultButton text={"Add to cart"}/>
-            </div>
+            </article>
         </section>
     );
 };

@@ -46,9 +46,21 @@
     cursor: pointer;
 }
 
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
 
+.showDetails:hover {
+    animation: show 1s forwards;
+}
 
 .showDetails {
+    opacity: 0;
     cursor: pointer;
     display: flex;
     flex-direction: column;

@@ -19,9 +19,9 @@ const ItemsCards = () => {
         <section className={styles.container}>
             {
                 new Array(12).fill(data).map((el, i) => (
-                    <div key={i}>
+                    <article key={i}>
                         <Card price={el.price} items={el.count + (i%3)}/>
-                    </div>
+                    </article>
                 ))
             }
         </section>

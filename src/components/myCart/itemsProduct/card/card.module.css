@@ -34,6 +34,7 @@
     font-weight: 600;
     line-height: 22px; /* 137.5% */
     align-self: stretch;
+    cursor: pointer;
 }
 
 .title:hover {

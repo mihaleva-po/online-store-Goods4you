@@ -10,7 +10,7 @@ interface propsFace {
 
 const DefaultButton = ({text, svg}:propsFace) => {
     return (
-        <button className={`${styles.button} ${svg && styles.svg}`}>
+        <button  className={`${styles.button} ${svg && styles.svg}`}>
             {text}
             {svg}
         </button>

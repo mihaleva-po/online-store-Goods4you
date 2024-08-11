@@ -12,7 +12,6 @@ const Catalog = () => {
                 <div className={styles.containerBtn}>
                     <DefaultButton text={"Show more"}/>
                 </div>
-
             </div>
         </section>
     );

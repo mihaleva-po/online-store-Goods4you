@@ -19,7 +19,6 @@ const ChangeCountItems = ({items}:propsFace) => {
                         }
                     </p>
                 </div>
-
                 <DefaultButton svg={<PlusSvg/>} />
         </section>
     );

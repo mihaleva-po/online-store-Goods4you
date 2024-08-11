@@ -5,7 +5,6 @@ const Footer = () => {
     return (
         <footer className={styles.footer}>
             <HeaderOrFooter isHeader={false}/>
-
         </footer>
     );
 };

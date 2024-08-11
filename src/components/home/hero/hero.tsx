@@ -2,7 +2,7 @@ import styles from './hero.module.css';
 import DefaultButton from "../../ui-components/button/defaultButton.tsx";
 
 
-export const Hero = () => {
+const Hero = () => {
     return (
         <section className={styles.hero}>
             <div className={styles.container}>
@@ -12,11 +12,10 @@ export const Hero = () => {
                 <a href={"/#catalog"} className={styles.containerBtn}>
                     <DefaultButton text={"Go to shopping"}/>
                 </a>
-
                 <h2>Goods4you</h2>
             </div>
         </section>
     );
 };
 
-
+export default Hero;

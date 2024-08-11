@@ -6,7 +6,7 @@ import Header from "./components/main/header/header.tsx";
 import Footer from "./components/main/footer/footer.tsx";
 import OneProduct from "./components/oneProduct/oneProduct.tsx";
 import MyCart from "./components/myCart/myCart.tsx";
-
+import ScrollToTop from "./handles/scrollToTop.tsx";
 
 
 function App() {
@@ -19,7 +19,13 @@ function App() {
         },
         {
             path: "/product/1",
-            element: <OneProduct/>,
+            element:
+                <>
+                    <ScrollToTop>
+                        <OneProduct/>
+                    </ScrollToTop>
+                </>
+            ,
             errorElement: <ErrorPage/>
         },
         {
@@ -31,7 +37,6 @@ function App() {
 
     return (
         <div className={"app"}>
-
             <Header/>
             <main className={"main"}>
                 <RouterProvider router={router}/>

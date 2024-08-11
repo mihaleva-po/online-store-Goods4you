@@ -11,16 +11,12 @@ interface propsFace {
 }
 
 
-const Card = ({items, price}:propsFace) => {
+const Card = ({items, price}: propsFace) => {
 
     const navigate = useNavigate();
 
-    const onClickCard = () => {
-        navigate("/product/1");
-    }
-
     return (
-        <section onClick={onClickCard} className={styles.section}>
+        <section onClick={() => navigate("/product/1")} className={styles.section}>
             <img src={product} alt="productImg"/>
             <div className={styles.showDetails}>
                 <p>Show details</p>
@@ -32,15 +28,14 @@ const Card = ({items, price}:propsFace) => {
                     <p className={styles.price}>${price}</p>
                 </div>
 
-
-                {
-                    items === 0 ?
-                        <DefaultButton svg={<CardSVG/>} />
-                        :
-                        <ChangeCountItems items={items}/>
-
-                }
-
+                <div onClick={(event) => event.stopPropagation()}>
+                    {
+                        items === 0 ?
+                            <DefaultButton svg={<CardSVG/>}/>
+                            :
+                            <ChangeCountItems items={items}/>
+                    }
+                </div>
             </div>
         </section>
     );

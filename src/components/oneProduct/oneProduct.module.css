@@ -12,3 +12,14 @@
     align-self: stretch;
 }
 
+@media (max-width: 800px) {
+    .oneProduct {
+        padding: 28px 60px;
+    }
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+}

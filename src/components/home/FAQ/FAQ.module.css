@@ -22,5 +22,16 @@
     align-self: stretch;
     padding-bottom: 20px;
     border-bottom: 1px solid #FFFFFF;
-    margin-bottom: 0;
+    margin: 0 0 20px 0;
+}
+
+@media (max-width: 1000px) {
+    .container h1 {
+        font-size: 3.6vw;
+        padding: 5px;
+    }
+    .faq {
+        padding: 6% 0;
+        gap: 0;
+    }
 }

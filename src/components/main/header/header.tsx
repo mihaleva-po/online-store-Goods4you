@@ -1,10 +1,16 @@
 import styles from './header.module.css';
-import HeaderOrFooter from "../headerOrFooter.tsx";
+import BurgerMenu from "../burgerMenu/burgerMenu.tsx";
+
 
 const Header = () => {
     return (
         <header className={styles.header}>
-            <HeaderOrFooter isHeader={true}/>
+            <div className={styles.container}>
+                <a className={styles.aLogo} href={"/"}>
+                    <h1>Goods4you</h1>
+                </a>
+                <BurgerMenu/>
+            </div>
         </header>
     );
 };

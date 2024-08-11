@@ -19,3 +19,9 @@
     line-height: 140%; /* 19.6px */
     white-space: nowrap;
 }
+
+@media (max-width: 1000px) {
+    .blockCountItems {
+        gap: 5px;
+    }
+}

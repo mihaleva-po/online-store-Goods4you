@@ -7,3 +7,43 @@
     align-self: stretch;
 }
 
+.container {
+    display: flex;
+    width: 82vw;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container h1 {
+    color: #FFF;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 44px; /* 146.667% */
+    cursor: pointer;
+}
+
+.container a, .nameUser{
+    color: #FFF;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 142.857% */
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.aLogo:hover {
+    text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+    .header {
+        height: 50px;
+    }
+
+    .container h1 {
+        font-size: 20px;
+    }
+}

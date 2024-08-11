@@ -4,9 +4,7 @@ import product from "../../../assets/images/oneProduct.png";
 const Gallery = () => {
     return (
         <section className={styles.blockImg}>
-            <figure>
                 <img className={styles.mainPhoto} src={product} alt="mainPhoto"/>
-            </figure>
             <article className={styles.galleryPhoto}>
                 {
                     new Array(6).fill(0).map((el, i) => (

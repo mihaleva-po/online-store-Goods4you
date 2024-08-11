@@ -29,3 +29,18 @@
 .svg {
     padding: 16px;
 }
+
+
+@media (max-width: 1200px) {
+    .button {
+        padding: 1vw 1vw;
+        font-size: 1.5vw;
+        line-height: normal;
+    }
+}
+
+@media (max-width: 1000px) {
+    .svg {
+        padding: 5px;
+    }
+}

@@ -28,3 +28,15 @@
     gap: 48px;
     justify-content: space-between;
 }
+
+@media (max-width: 1400px) {
+    .myCart {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 800px) {
+    .main {
+        flex-direction: column;
+    }
+}

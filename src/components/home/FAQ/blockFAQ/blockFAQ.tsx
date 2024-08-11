@@ -14,13 +14,10 @@ const BlockFaq = ({textQues, textAnswer}: propsFace) => {
 
     const [isRotated, setIsRotated] = useState(false);
 
-    // const [isAnimating, setIsAnimating] = useState(false);
 
     const handleBlockClick = () => {
         setIsRotated((prevIsRotated) => !prevIsRotated);
-        // setIsAnimating(true);
         setIsOpen(isOpen => !isOpen);
-        // setIsAnimating(false);
     };
 
     return (
@@ -33,8 +30,6 @@ const BlockFaq = ({textQues, textAnswer}: propsFace) => {
 
             </article>
 
-
-                 {/*isOpen && <p className={styles.answer}>{textAnswer}</p>*/}
             <div className={`${styles.containerAnswer} ${isOpen ? styles.visible : styles.hidden}`}>
                 <p className={`${styles.answer} ${isOpen ? styles.visible : styles.hidden}`}>{textAnswer}</p>
             </div>

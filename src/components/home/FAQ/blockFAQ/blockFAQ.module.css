@@ -14,21 +14,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: 26px;
-
-    /*visibility: hidden;*/
-    /*max-height: 0;*/
-    /*display: none;*/
-    /*overflow: hidden;*/
-    /*transition: max-height 20s, visibility 20s;*/
 }
-
-
-/*.visible {*/
-/*    visibility: visible;*/
-/*    max-height: 1000px; !* если не уверены в высоте блока, можете указать большое значение или auto *!*/
-/*    display: block;*/
-/*}*/
-
 
 .container {
     width: 880px;
@@ -36,8 +22,7 @@
     display: flex;
     gap: 20px;
     flex-direction: column;
-    /*border-bottom: 1px solid #FFFFFF;*/
-    padding: 20px 0;
+    padding-bottom: 20px;
 }
 
 
@@ -45,20 +30,6 @@
     display: flex;
     justify-content: space-between;
 }
-
-
-/*.animating {*/
-/*    animation: 1s linear rotation45 forwards;*/
-/*}*/
-
-/*@keyframes rotation45 {*/
-/*    from {*/
-/*        transform: rotate(0deg);*/
-/*    }*/
-/*    to {*/
-/*        transform: rotate(45deg);*/
-/*    }*/
-/*}*/
 
 
 .block {
@@ -87,24 +58,7 @@
     }
 }
 
-/*@keyframes animatingCloseP {*/
-/*    0% {*/
-/*        transform: translateY(0%);*/
-/*    }*/
-/*    100% {*/
-/*        transform: translateY(-50%);*/
-/*        display: none;*/
-/*    }*/
-/*}*/
 
-/*@keyframes animatingClose {*/
-/*    0% {*/
-/*        transform: translateY(0%);*/
-/*    }*/
-/*    100% {*/
-/*        transform: translateY(-50%);*/
-/*    }*/
-/*}*/
 
 .visible {
     display: flex;
@@ -112,14 +66,23 @@
     animation: animatingOpen 1.1s forwards;
 }
 
-/*.hidden {*/
-/*    display: flex;*/
-/*    transform: translateY(-150%);*/
-/*    animation: animatingClose 1s forwards;*/
-/*}*/
+@media (max-width: 1000px) {
+    .container, .answer {
+        width: 80vw;
+    }
 
-/*.containerAnswer p {*/
-/*    display: flex;*/
-/*    transform: translateY(-150%);*/
-/*    animation: animatingCloseP 1s forwards;*/
-/*}*/
+    .question {
+        font-size: 2vw;
+    }
+
+    .answer {
+        font-size: 1.6vw;
+    }
+
+    .container {
+        gap: 5px;
+        padding: 5px;
+    }
+
+
+}

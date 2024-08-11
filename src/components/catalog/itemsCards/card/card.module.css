@@ -3,7 +3,6 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-bottom: 20px;
     padding-bottom: 6px;
     width: 370px;
 }
@@ -21,7 +20,6 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     align-self: stretch;
-
 }
 
 .price {
@@ -84,3 +82,41 @@
     font-weight: 800;
     line-height: normal;
 }
+
+@media (max-width: 1410px) and (min-width: 800px){
+    .section {
+        width: 22vw;
+    }
+
+    .section img, .showDetails {
+        width: 22vw;
+        height: auto;
+    }
+    .title {
+        font-size: 1.2vw;
+    }
+    .price {
+        font-size: 1.3vw;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .section {
+        width: 200px;
+    }
+
+    .section img, .showDetails {
+        width: 200px;
+        height: auto;
+    }
+
+    .title {
+        font-size: 12px;
+    }
+
+    .price {
+        font-size: 13px;
+    }
+}
+

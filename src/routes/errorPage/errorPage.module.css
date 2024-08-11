@@ -1,9 +1,6 @@
 .errorPage {
     display: flex;
     justify-content: center;
-    /*background: #484283;*/
-    /*height: 100vh;*/
-    /*flex: 1;*/
 }
 
 .container {

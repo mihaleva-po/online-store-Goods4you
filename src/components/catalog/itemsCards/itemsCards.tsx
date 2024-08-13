@@ -1,26 +1,20 @@
-import {useState} from "react";
+
 import Card from "./card/card.tsx";
 import styles from './itemsCard.module.css';
+import {Product} from "../../../redux/services/searchProducts.ts";
 
-const ItemsCards = () => {
+interface PropsFace {
+    data: Product[]
+}
 
-    const [data] = useState(
-        {
-            id: 0,
-            name: '',
-            img: '',
-            price: 110,
-            count: 0,
-        }
-    );
-
+const ItemsCards = ({data}:PropsFace) => {
 
     return (
         <section className={styles.container}>
             {
-                new Array(12).fill(data).map((el, i) => (
+                data.map((product, i) => (
                     <article key={i}>
-                        <Card price={el.price} items={el.count + (i%3)}/>
+                        <Card title={product.title} images={product.images} price={product.price}/>
                     </article>
                 ))
             }

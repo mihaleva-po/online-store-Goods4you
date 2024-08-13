@@ -90,7 +90,7 @@
 
     .section img, .showDetails {
         width: 22vw;
-        height: auto;
+        /*height: auto;*/
     }
     .title {
         font-size: 1.2vw;

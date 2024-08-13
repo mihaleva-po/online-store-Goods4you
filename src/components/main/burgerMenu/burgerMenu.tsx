@@ -1,6 +1,7 @@
 import styles from "./burgerMenu.module.css";
 import CartSVG from "../../svg/cartSVG.tsx";
 import {useState} from "react";
+import CountProducts from "./countProducts/countProducts.tsx";
 
 
 const BurgerMenu = () => {
@@ -23,9 +24,7 @@ const BurgerMenu = () => {
                     Cart
                     <div className={styles.blockCart}>
                         <CartSVG/>
-                        <div className={styles.circle}>
-                            <p>1</p>
-                        </div>
+                        <CountProducts/>
                     </div>
                 </a>
                 <p className={styles.nameUser}>Johnson Smith</p>

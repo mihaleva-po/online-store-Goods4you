@@ -38,9 +38,20 @@
     gap: 10px;
 }
 
+.containerImg {
+    width: 100%; /* Задает ширину контейнера, можно также использовать фиксированное значение, например, 300px */
+    max-width: 300px; /* Ограничивает максимальную ширину */
+    aspect-ratio: 1 / 1; /* Сохраняет пропорции, можно задавать свои, например, 4 / 3 */
+    background-color: #fff; /* Цвет фона контейнера */
+    overflow: hidden; /* Убирает выход изображения за границы контейнера */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .section img {
-    height: 300px;
-    width: 370px;
+    /*height: 300px;*/
+    /*width: 370px;*/
     cursor: pointer;
 }
 
@@ -106,7 +117,7 @@
         width: 200px;
     }
 
-    .section img, .showDetails {
+    .containerImg, .showDetails {
         width: 200px;
         height: auto;
     }

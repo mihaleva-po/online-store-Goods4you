@@ -1,13 +1,21 @@
 import styles from './rate.module.css';
 import StarSvg from "../../../svg/starSVG.tsx";
 
-const Rate = () => {
+
+interface PropsFace {
+    rating: number | undefined
+}
+
+const Rate = ({rating}:PropsFace) => {
+
+    rating = rating === undefined ? 0 : Math.round(rating);
+
     return (
         <section className={styles.rate}>
             {
                 new Array(5).fill(0).map((el, i) => (
                     <div key={i}>
-                        <StarSvg color={`${i===4 ? "#D5D5D5" : "#F14F4F"}`}/>
+                        <StarSvg color={`${i < rating ? "#F14F4F" : "#D5D5D5"}`}/>
                     </div>
 
                 ))

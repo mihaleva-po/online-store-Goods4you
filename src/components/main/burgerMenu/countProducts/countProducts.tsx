@@ -11,7 +11,7 @@ const CountProducts = () => {
     const totalQuantity = useSelector((state: RootState) => state.cart.totalQuantity);
 
     useEffect(() => {
-        dispatch(fetchUserCart(1));
+        dispatch(fetchUserCart(6));
         // console.log(totalQuantity);
     }, [dispatch]);
 

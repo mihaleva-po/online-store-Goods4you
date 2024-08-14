@@ -1,35 +1,67 @@
 import styles from './descProduct.module.css';
 import Rate from "./rate/rate.tsx";
 import DefaultButton from "../../ui-components/button/defaultButton.tsx";
+import {Product} from "../../../redux/services/searchProducts.ts";
+import {useEffect, useState} from "react";
+import React from "react";
 
-const DescProduct = () => {
+
+interface PropsFace {
+    data: Product
+}
+
+const DescProduct = ({data}:PropsFace) => {
+
+    const [currentPrice, setCurrentPrice] = useState<number>();
+    const [discount, setDiscount] = useState(data.discountPercentage ? data.discountPercentage : 0);
+
+    useEffect(() => {
+        if (data) {
+            setDiscount(data.discountPercentage !== undefined ? data.discountPercentage : 0);
+            setCurrentPrice(Number((data.price * (100 - discount) / 100 ).toFixed(2)));
+        }
+    }, [data]);
+
+
     return (
         <section className={styles.container}>
             <article className={styles.mainBlock}>
-                <h1>Essence Mascara Lash Princess</h1>
+                <h1>{data.title}</h1>
                 <div className={styles.blockRate}>
-                    <Rate/>
-                    <p>electronics, selfie accessories</p>
+                    <Rate rating={data.rating}/>
+                    {/*<div className={styles.containerTags}>*/}
+                    {/*    {data?.tags?.map((el, i) =>*/}
+                    {/*    <p key={i}>{el}</p>)}*/}
+                    {/*</div>*/}
+
+                    <div className={styles.containerTags}>
+                        {data?.tags?.map((el, i, arr) => (
+                            <React.Fragment key={i}>
+                                <p>{el}</p>
+                                {i < arr.length - 1 && <span>,&nbsp;</span>}
+                            </React.Fragment>
+                        ))}
+                    </div>
+
+
                 </div>
             </article>
-            <p className={styles.availability}>In Stock - Only 5 left!</p>
-            <p className={styles.description}>The Essence Mascara Lash Princess is a
-                popular mascara known for its volumizing and lengthening effects.
-                Achieve dramatic lashes with this long-lasting and cruelty-free formula.</p>
+            <p className={styles.availability}>{data.availabilityStatus}</p>
+            <p className={styles.description}>{data.description}</p>
             <div className={styles.warranty}>
-                <p>1 month warranty</p>
-                <p>Ships in 1 month</p>
+                <p>{data.warrantyInformation}</p>
+                <p>{data.shippingInformation}</p>
             </div>
             <article className={styles.greyBlock}>
                 <div className={styles.blockPrice}>
                     <div className={styles.price}>
-                        <p className={styles.currentPrice}>$7.17</p>
-                        <p className={styles.oldPrice}>$9.99</p>
+                        <p className={styles.currentPrice}>${currentPrice}</p>
+                        <p className={styles.oldPrice}>${data.price}</p>
                     </div>
                     <div className={styles.line}></div>
                     <div className={styles.discount}>
                         <p>Your discount:</p>
-                        <p className={styles.percent}>14.5%</p>
+                        <p className={styles.percent}>{discount}%</p>
                     </div>
                 </div>
                 <DefaultButton text={"Add to cart"}/>

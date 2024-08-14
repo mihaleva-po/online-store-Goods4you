@@ -29,6 +29,11 @@
     border: none;
 }
 
+.isLoading {
+    display: flex;
+    justify-content: center;
+}
+
 
 .search:focus {
     outline: 2px solid #484283;

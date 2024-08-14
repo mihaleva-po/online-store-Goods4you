@@ -18,7 +18,7 @@ function App() {
             errorElement: <ErrorPage/>
         },
         {
-            path: "/product/1",
+            path: "/product/:id",
             element:
                 <>
                     <ScrollToTop>
@@ -33,6 +33,10 @@ function App() {
             element: <MyCart/>,
             errorElement: <ErrorPage/>
         },
+        {
+            path: "/404",  // Маршрут для страницы 404
+            element: <ErrorPage />  // Ваш компонент страницы 404
+        }
     ]);
 
     return (

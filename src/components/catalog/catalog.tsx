@@ -15,7 +15,7 @@ const Catalog = () => {
     const [allProducts, setAllProducts] = useState<Product[]>([]);
 
 
-    const { data, error, isLoading, isFetching } =
+    const { data, error, isLoading } =
         useSearchProductsQuery({
         q: debouncedSearchTerm,
         limit: LIMIT,
@@ -50,8 +50,11 @@ const Catalog = () => {
                 <input className={styles.search} type="search" placeholder={"Search by title"}
                        value={searchTerm} onChange={handleSearchChange}/>
 
-                {isLoading && <p>Loading...</p>}
-                {error && <p>Error fetching products</p>}
+                <div className={styles.isLoading}>
+                    {isLoading && <p>Loading...</p>}
+                    {error && <p>Error fetching products</p>}
+                </div>
+
 
                 {
                     allProducts !== undefined ?
@@ -59,7 +62,7 @@ const Catalog = () => {
                         : null
                 }
 
-                {isFetching && <p>Loading more...</p>}
+
                 {data && skip + LIMIT < data.total &&
                     (
                     <div onClick={handleShowMore} className={styles.containerBtn}>

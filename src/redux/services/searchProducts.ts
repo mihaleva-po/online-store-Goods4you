@@ -11,7 +11,12 @@ export interface Product {
     discountPercentage?: number;
     rating?: number;
     stock?: number;
-    images: [string]
+    images: [string],
+    availabilityStatus?: string,
+    warrantyInformation?: string,
+    shippingInformation?: string,
+    tags?: [string],
+    thumbnail?: string
 }
 
 

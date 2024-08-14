@@ -14,6 +14,10 @@
     align-self: stretch;
 }
 
+.containerTags {
+    display: flex;
+}
+
 .mainBlock h1 {
     color: #444B58;
     font-size: 36px;

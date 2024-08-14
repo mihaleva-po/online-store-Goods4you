@@ -7,17 +7,18 @@ import ChangeCountItems from "../../../ui-components/changeCountItems/changeCoun
 import {Product} from "../../../../redux/services/searchProducts.ts";
 
 
-
-
-const Card = ({images, title, price}: Product) => {
+const Card = ({id, title, price, discountPercentage, images}: Product) => {
 
     const items = 0;
 
     const navigate = useNavigate();
 
     return (
-        <section onClick={() => navigate("/product/1")} className={styles.section}>
-            <img src={images[0]} alt="productImg"/>
+        <section onClick={() => navigate(`/product/${id}`)} className={styles.section}>
+            <figure className={styles.containerImg}>
+                <img src={images[0]} alt="productImg"/>
+            </figure>
+
             <div className={styles.showDetails}>
                 <p>Show details</p>
             </div>
@@ -25,7 +26,9 @@ const Card = ({images, title, price}: Product) => {
             <div className={styles.desc}>
                 <div>
                     <p className={styles.title}>{title}</p>
-                    <p className={styles.price}>${price}</p>
+                    <p className={styles.price}>$
+                        {Number((price * (discountPercentage ? 1 - discountPercentage/100 : 1)).toFixed(2))}
+                    </p>
                 </div>
 
                 <div onClick={(event) => event.stopPropagation()}>

@@ -14,7 +14,9 @@ const ItemsCards = ({data}:PropsFace) => {
             {
                 data.map((product, i) => (
                     <article key={i}>
-                        <Card title={product.title} images={product.images} price={product.price}/>
+                        <Card id={product.id} images={product.images}
+                              title={product.title} price={product.price}
+                              discountPercentage={product.discountPercentage}/>
                     </article>
                 ))
             }

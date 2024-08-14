@@ -1,16 +1,31 @@
 import styles from './gallery.module.css';
-import product from "../../../assets/images/oneProduct.png";
+import {useState} from "react";
 
-const Gallery = () => {
+
+interface PropsFace {
+    images: [string]
+}
+
+const Gallery = ({images}:PropsFace) => {
+
+    const [activePhoto, setActivePhoto] = useState(images[0]);
+    const [numberPhoto, setNumberPhoto] = useState(0);
+
+    const handleClickPhoto = (numberImg: number) => {
+        setNumberPhoto(numberImg);
+        setActivePhoto(images[numberImg]);
+    }
+
     return (
         <section className={styles.blockImg}>
-                <img className={styles.mainPhoto} src={product} alt="mainPhoto"/>
+                <img className={styles.mainPhoto} src={activePhoto} alt="mainPhoto"/>
             <article className={styles.galleryPhoto}>
                 {
-                    new Array(6).fill(0).map((el, i) => (
-                        <div key={i}>
-                            <img src={product} alt={`productImg`}
-                                 className={`${styles.smallPhoto} ${i === 0 ? styles.activePhoto : null}`}/>
+                    images.length > 1 &&
+                    images.map((img, i) => (
+                        <div onClick={()=>handleClickPhoto(i)} key={i}>
+                            <img src={img} alt={`productImg`}
+                                 className={`${styles.smallPhoto} ${i === numberPhoto ? styles.activePhoto : null}`}/>
                         </div>
 
                     ))

@@ -12,7 +12,6 @@ interface errorFace {
 
 const ErrorPage = () => {
     const errorRoute = useRouteError();
-    console.log(errorRoute);
 
     const error = errorRoute as errorFace;
 
@@ -23,15 +22,15 @@ const ErrorPage = () => {
             </Helmet>
             <div className={styles.container}>
                 {
-                    error.status === 404
+                    error?.status === 404 || error === null
                     ?
                         <figure>
                             <img src={error404} alt="error404"/>
                         </figure>
                         :
                         <div className={styles.blockError}>
-                            <h1>{error.status}</h1>
-                            <p>{error.statusText} </p>
+                            <h1>{error?.status}</h1>
+                            <p>{error?.statusText || "Произошла ошибка"} </p>
                         </div>
                 }
             </div>

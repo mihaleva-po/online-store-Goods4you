@@ -3,14 +3,14 @@ import {Product} from "./searchProducts.ts";
 
 
 export const singleProductApi = createApi({
-    reducerPath:'singleProduct',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
+    reducerPath: 'singleProduct',
+    baseQuery: fetchBaseQuery({baseUrl: 'https://dummyjson.com/'}),
     endpoints: (builder) => ({
         singleProduct: builder.query<Product, { id: number }>({
-            query: ({ id }) =>
+            query: ({id}) =>
                 `https://dummyjson.com/products/${id}`,
         }),
     }),
 })
 
-export const { useSingleProductQuery } = singleProductApi;
+export const {useSingleProductQuery} = singleProductApi;

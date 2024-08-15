@@ -8,17 +8,14 @@ const Faq = () => {
         {
             question: 'How can I track the status of my order?',
             answer: '',
-            // isOpen: false
-            },
+        },
         {
             question: 'What payment methods do you accept?',
             answer: '',
-            // isOpen: true
         },
         {
             question: 'How can I return or exchange an item?',
             answer: '',
-            // isOpen: true
         },
     ];
 
@@ -37,9 +34,7 @@ const Faq = () => {
                         </article>
                     ))
                 }
-
             </div>
-
         </section>
     );
 };

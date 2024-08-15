@@ -7,19 +7,18 @@ interface propsFace {
     items: number
 }
 
-const ChangeCountItems = ({items}:propsFace) => {
+const ChangeCountItems = ({items}: propsFace) => {
     return (
         <section className={styles.blockCountItems}>
-                <DefaultButton svg={<MinusSvg/>} />
-                <div className={styles.containerCount}>
-                    <p className={styles.countItems}>{items}
-                        {
-                            items > 1 ?
-                                " items" : " item"
-                        }
-                    </p>
-                </div>
-                <DefaultButton svg={<PlusSvg/>} />
+            <DefaultButton svg={<MinusSvg/>}/>
+            <div className={styles.containerCount}>
+                <p className={styles.countItems}>{items}
+                    {
+                        items > 1 ? " items" : <>&nbsp;item&nbsp;&nbsp;</>
+                    }
+                </p>
+            </div>
+            <DefaultButton svg={<PlusSvg/>}/>
         </section>
     );
 };

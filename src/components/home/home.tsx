@@ -4,11 +4,10 @@ import Hero from "./hero/hero.tsx";
 import ScrollToAnchor from "../../handles/scrollToAnchor.tsx";
 
 
-
 const Home = () => {
     return (
         <section>
-            <ScrollToAnchor />
+            <ScrollToAnchor/>
             <Hero/>
             <Catalog/>
             <Faq/>

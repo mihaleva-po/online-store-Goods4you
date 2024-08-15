@@ -6,7 +6,7 @@ interface PropsFace {
     images: [string]
 }
 
-const Gallery = ({images}:PropsFace) => {
+const Gallery = ({images}: PropsFace) => {
 
     const [activePhoto, setActivePhoto] = useState(images[0]);
     const [numberPhoto, setNumberPhoto] = useState(0);
@@ -18,16 +18,15 @@ const Gallery = ({images}:PropsFace) => {
 
     return (
         <section className={styles.blockImg}>
-                <img className={styles.mainPhoto} src={activePhoto} alt="mainPhoto"/>
+            <img className={styles.mainPhoto} src={activePhoto} alt="mainPhoto"/>
             <article className={styles.galleryPhoto}>
                 {
                     images.length > 1 &&
                     images.map((img, i) => (
-                        <div onClick={()=>handleClickPhoto(i)} key={i}>
+                        <div onClick={() => handleClickPhoto(i)} key={i}>
                             <img src={img} alt={`productImg`}
                                  className={`${styles.smallPhoto} ${i === numberPhoto ? styles.activePhoto : null}`}/>
                         </div>
-
                     ))
                 }
             </article>

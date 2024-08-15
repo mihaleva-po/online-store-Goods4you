@@ -14,7 +14,7 @@
     font-size: 16px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px; /* 125% */
+    line-height: 20px;
     margin-bottom: 6px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -27,10 +27,8 @@
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px; /* 133.333% */
+    line-height: 24px;
 }
-
-
 
 .desc {
     display: flex;
@@ -39,19 +37,17 @@
 }
 
 .containerImg {
-    width: 100%; /* Задает ширину контейнера, можно также использовать фиксированное значение, например, 300px */
-    max-width: 300px; /* Ограничивает максимальную ширину */
-    aspect-ratio: 1 / 1; /* Сохраняет пропорции, можно задавать свои, например, 4 / 3 */
-    background-color: #fff; /* Цвет фона контейнера */
-    overflow: hidden; /* Убирает выход изображения за границы контейнера */
+    width: 100%;
+    max-width: 300px;
+    aspect-ratio: 1 / 1;
+    background-color: #fff;
+    overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .section img {
-    /*height: 300px;*/
-    /*width: 370px;*/
     cursor: pointer;
 }
 
@@ -83,7 +79,6 @@
     background: rgba(135, 135, 135, 0.25);
     position: absolute;
     text-align: center;
-
 }
 
 .showDetails p {
@@ -94,22 +89,22 @@
     line-height: normal;
 }
 
-@media (max-width: 1410px) and (min-width: 800px){
+@media (max-width: 1410px) and (min-width: 800px) {
     .section {
         width: 22vw;
     }
 
     .section img, .showDetails {
         width: 22vw;
-        /*height: auto;*/
     }
+
     .title {
         font-size: 1.2vw;
     }
+
     .price {
         font-size: 1.3vw;
     }
-
 }
 
 @media (max-width: 800px) {

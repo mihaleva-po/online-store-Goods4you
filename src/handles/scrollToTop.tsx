@@ -1,14 +1,11 @@
-
-
-
-import { ReactNode, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import {ReactNode, useEffect} from "react";
+import {useLocation} from "react-router-dom";
 
 interface ScrollToTopProps {
     children: ReactNode;
 }
 
-const ScrollToTop: React.FC<ScrollToTopProps> = ({ children }) => {
+const ScrollToTop: React.FC<ScrollToTopProps> = ({children}) => {
     const location = useLocation();
 
     useEffect(() => {

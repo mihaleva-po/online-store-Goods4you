@@ -6,7 +6,7 @@ interface PropsFace {
     rating: number | undefined
 }
 
-const Rate = ({rating}:PropsFace) => {
+const Rate = ({rating}: PropsFace) => {
 
     rating = rating === undefined ? 0 : Math.round(rating);
 

@@ -1,4 +1,3 @@
-
 import styles from './defaultButton.module.css';
 import {ReactNode} from "react";
 
@@ -8,9 +7,9 @@ interface propsFace {
     svg?: ReactNode,
 }
 
-const DefaultButton = ({text, svg}:propsFace) => {
+const DefaultButton = ({text, svg}: propsFace) => {
     return (
-        <button  className={`${styles.button} ${svg && styles.svg}`}>
+        <button className={`${styles.button} ${svg && styles.svg}`}>
             {text}
             {svg}
         </button>

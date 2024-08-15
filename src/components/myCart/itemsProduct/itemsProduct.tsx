@@ -1,38 +1,34 @@
 import styles from './itemsProduct.module.css';
 import Card from "./card/card.tsx";
 import {useState} from "react";
+import {Product} from "../../../redux/slices/cartsSlice.ts";
 
-const ItemsProduct = () => {
+interface PropsFace {
+    products: Product[]
+}
 
-    const [data, setData] = useState([
-        {
+const ItemsProduct = ({products}: PropsFace) => {
+
+    const [data, setData] = useState(
+        new Array(products.length).fill({
             isDeleted: false,
-        },
-        {
-            isDeleted: false,
-        },
-        {
-            isDeleted: false,
-        },
-        {
-            isDeleted: true,
-        },
-    ]);
+        }));
 
     const onClickDeleted = (index: number) => {
         setData(prevData =>
-        prevData.map((el, i) => (
-            i === index ? {...el, isDeleted: true} : el
-        ))
+            prevData.map((el, i) => (
+                i === index ? {...el, isDeleted: true} : el
+            ))
         )
     }
 
     return (
         <section className={styles.container}>
             {
-                data.map((el, i) => (
+                products.map((product: Product, i: number) => (
                     <div key={i}>
-                        <Card isDeleted={el.isDeleted} onClickDeleted={()=>onClickDeleted(i)}/>
+                        <Card product={product} isDeleted={data[i]?.isDeleted}
+                              onClickDeleted={() => onClickDeleted(i)}/>
                     </div>
                 ))
             }

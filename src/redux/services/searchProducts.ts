@@ -1,6 +1,4 @@
-
-
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
 
 export interface Product {
     id?: number;
@@ -19,7 +17,6 @@ export interface Product {
     thumbnail?: string
 }
 
-
 export interface ProductsResponse {
     products: Product[];
     total: number;
@@ -29,14 +26,14 @@ export interface ProductsResponse {
 
 export const productsApi = createApi({
     reducerPath: 'productsApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://dummyjson.com/' }),
+    baseQuery: fetchBaseQuery({baseUrl: 'https://dummyjson.com/'}),
     endpoints: (builder) => ({
         searchProducts: builder.query<ProductsResponse, { q: string; limit: number; skip: number }>({
-            query: ({ q, limit, skip }) =>
+            query: ({q, limit, skip}) =>
                 `products/search?q=${q}&limit=${limit}&skip=${skip}`,
         }),
     }),
 });
 
 
-export const { useSearchProductsQuery } = productsApi;
+export const {useSearchProductsQuery} = productsApi;

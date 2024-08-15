@@ -29,7 +29,6 @@ const BurgerMenu = () => {
                 </a>
                 <p className={styles.nameUser}>Johnson Smith</p>
 
-
             </nav>
         </div>
     );

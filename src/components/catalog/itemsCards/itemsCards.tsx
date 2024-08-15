@@ -1,4 +1,3 @@
-
 import Card from "./card/card.tsx";
 import styles from './itemsCard.module.css';
 import {Product} from "../../../redux/services/searchProducts.ts";
@@ -7,7 +6,7 @@ interface PropsFace {
     data: Product[]
 }
 
-const ItemsCards = ({data}:PropsFace) => {
+const ItemsCards = ({data}: PropsFace) => {
 
     return (
         <section className={styles.container}>

@@ -34,8 +34,8 @@ function App() {
             errorElement: <ErrorPage/>
         },
         {
-            path: "/404",  // Маршрут для страницы 404
-            element: <ErrorPage />  // Ваш компонент страницы 404
+            path: "/404",
+            element: <ErrorPage/>
         }
     ]);
 

@@ -4,24 +4,30 @@ import DefaultButton from "../../ui-components/button/defaultButton.tsx";
 import {Product} from "../../../redux/services/searchProducts.ts";
 import {useEffect, useState} from "react";
 import React from "react";
+import ChangeCountItems from "../../ui-components/changeCountItems/changeCountItems.tsx";
+import {useCart} from "../../../context/CartContext.tsx";
 
 
 interface PropsFace {
     data: Product
 }
 
-const DescProduct = ({data}:PropsFace) => {
+const DescProduct = ({data}: PropsFace) => {
+
+    const cart = useCart();
+    const product = cart.products.find(el => el.id === data.id);
+    const items = product?.quantity ? product?.quantity : 0;
 
     const [currentPrice, setCurrentPrice] = useState<number>();
-    const [discount, setDiscount] = useState(data.discountPercentage ? data.discountPercentage : 0);
+    const [discount, setDiscount] = useState(data.discountPercentage ?
+        data.discountPercentage : 0);
 
     useEffect(() => {
         if (data) {
             setDiscount(data.discountPercentage !== undefined ? data.discountPercentage : 0);
-            setCurrentPrice(Number((data.price * (100 - discount) / 100 ).toFixed(2)));
+            setCurrentPrice(Number((data.price * (100 - discount) / 100).toFixed(2)));
         }
     }, [data]);
-
 
     return (
         <section className={styles.container}>
@@ -29,10 +35,6 @@ const DescProduct = ({data}:PropsFace) => {
                 <h1>{data.title}</h1>
                 <div className={styles.blockRate}>
                     <Rate rating={data.rating}/>
-                    {/*<div className={styles.containerTags}>*/}
-                    {/*    {data?.tags?.map((el, i) =>*/}
-                    {/*    <p key={i}>{el}</p>)}*/}
-                    {/*</div>*/}
 
                     <div className={styles.containerTags}>
                         {data?.tags?.map((el, i, arr) => (
@@ -42,7 +44,6 @@ const DescProduct = ({data}:PropsFace) => {
                             </React.Fragment>
                         ))}
                     </div>
-
 
                 </div>
             </article>
@@ -64,7 +65,14 @@ const DescProduct = ({data}:PropsFace) => {
                         <p className={styles.percent}>{discount}%</p>
                     </div>
                 </div>
-                <DefaultButton text={"Add to cart"}/>
+
+                {
+                    items === 0 ?
+                        <DefaultButton text={"Add to cart"}/>
+                        :
+                        <ChangeCountItems items={items}/>
+                }
+
             </article>
         </section>
     );

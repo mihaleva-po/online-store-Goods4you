@@ -1,9 +1,10 @@
 import styles from './catalog.module.css';
 import DefaultButton from "../ui-components/button/defaultButton.tsx";
 import React, {useEffect, useState} from "react";
-import { useDebounce } from 'use-debounce';
+import {useDebounce} from 'use-debounce';
 import {Product, useSearchProductsQuery} from '../../redux/services/searchProducts.ts';
 import ItemsCards from "./itemsCards/itemsCards.tsx";
+
 const Catalog = () => {
 
     const LIMIT = 12;
@@ -14,16 +15,14 @@ const Catalog = () => {
 
     const [allProducts, setAllProducts] = useState<Product[]>([]);
 
-
-    const { data, error, isLoading } =
+    const {data, error, isLoading} =
         useSearchProductsQuery({
-        q: debouncedSearchTerm,
-        limit: LIMIT,
-        skip,
-    }, {
-        refetchOnMountOrArgChange: true,
-    });
-
+            q: debouncedSearchTerm,
+            limit: LIMIT,
+            skip,
+        }, {
+            refetchOnMountOrArgChange: true,
+        });
 
     useEffect(() => {
         if (data) {
@@ -55,20 +54,18 @@ const Catalog = () => {
                     {error && <p>Error fetching products</p>}
                 </div>
 
-
                 {
                     allProducts !== undefined ?
                         <ItemsCards data={allProducts}/>
                         : null
                 }
 
-
                 {data && skip + LIMIT < data.total &&
                     (
-                    <div onClick={handleShowMore} className={styles.containerBtn}>
-                        <DefaultButton text={"Show more"}/>
-                    </div>
-                )}
+                        <div onClick={handleShowMore} className={styles.containerBtn}>
+                            <DefaultButton text={"Show more"}/>
+                        </div>
+                    )}
             </div>
         </section>
     );

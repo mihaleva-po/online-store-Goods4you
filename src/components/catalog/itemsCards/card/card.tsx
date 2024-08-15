@@ -1,15 +1,17 @@
 import DefaultButton from "../../../ui-components/button/defaultButton.tsx";
 import CardSVG from "../../../svg/cartSVG.tsx";
 import styles from './card.module.css';
-// import product from '../../../../assets/images/product.png';
 import {useNavigate} from "react-router-dom";
 import ChangeCountItems from "../../../ui-components/changeCountItems/changeCountItems.tsx";
 import {Product} from "../../../../redux/services/searchProducts.ts";
+import {useCart} from "../../../../context/CartContext.tsx";
 
 
 const Card = ({id, title, price, discountPercentage, images}: Product) => {
 
-    const items = 0;
+    const cart = useCart();
+    const product = cart.products.find(el => el.id === id);
+    const items = product?.quantity ? product?.quantity : 0;
 
     const navigate = useNavigate();
 
@@ -27,7 +29,7 @@ const Card = ({id, title, price, discountPercentage, images}: Product) => {
                 <div>
                     <p className={styles.title}>{title}</p>
                     <p className={styles.price}>$
-                        {Number((price * (discountPercentage ? 1 - discountPercentage/100 : 1)).toFixed(2))}
+                        {Number((price * (discountPercentage ? 1 - discountPercentage / 100 : 1)).toFixed(2))}
                     </p>
                 </div>
 

@@ -2,9 +2,13 @@ import styles from './myCart.module.css';
 import ItemsProduct from "./itemsProduct/itemsProduct.tsx";
 import TotalPrice from "./totalPrice/totalPrice.tsx";
 import {Helmet} from "react-helmet-async";
+import {useCart} from "../../context/CartContext.tsx";
 
 
 const MyCart = () => {
+
+    const cart = useCart();
+
     return (
         <section className={styles.myCart}>
             <Helmet>
@@ -13,8 +17,8 @@ const MyCart = () => {
             <div className={styles.container}>
                 <h1>My cart</h1>
                 <div className={styles.main}>
-                    <ItemsProduct/>
-                    <TotalPrice/>
+                    <ItemsProduct products={cart.products}/>
+                    <TotalPrice cart={cart}/>
                 </div>
             </div>
         </section>

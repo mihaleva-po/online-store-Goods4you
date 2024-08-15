@@ -8,7 +8,6 @@
     gap: 40px;
 }
 
-
 .cart {
     gap: 6px;
 }
@@ -17,23 +16,21 @@
     position: relative;
 }
 
-
-
 .menu a:hover {
     color: #C4C4C4;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
     text-decoration-line: underline;
 }
 
-.nameUser{
+.nameUser {
     color: #FFF;
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
     text-decoration: none;
     display: flex;
     align-items: center;

@@ -3,7 +3,6 @@ import CloseSVG from "../../../svg/closeSVG.tsx";
 import {useState} from "react";
 
 interface propsFace {
-    // isOpen: boolean,
     textQues: string,
     textAnswer: string
 }
@@ -11,9 +10,7 @@ interface propsFace {
 const BlockFaq = ({textQues, textAnswer}: propsFace) => {
 
     const [isOpen, setIsOpen] = useState(false);
-
     const [isRotated, setIsRotated] = useState(false);
-
 
     const handleBlockClick = () => {
         setIsRotated((prevIsRotated) => !prevIsRotated);
@@ -27,14 +24,11 @@ const BlockFaq = ({textQues, textAnswer}: propsFace) => {
                 <div className={`${styles.block} ${isRotated ? styles.rotated : ''}`}>
                     <CloseSVG/>
                 </div>
-
             </article>
 
             <div className={`${styles.containerAnswer} ${isOpen ? styles.visible : styles.hidden}`}>
                 <p className={`${styles.answer} ${isOpen ? styles.visible : styles.hidden}`}>{textAnswer}</p>
             </div>
-
-
 
         </section>
     );

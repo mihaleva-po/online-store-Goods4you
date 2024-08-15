@@ -1,12 +1,44 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 
+export interface Product {
+    "id": number,
+    "title": string,
+    "price": number,
+    "quantity": number,
+    "total"?: number,
+    "discountPercentage"?: number,
+    "discountedTotal"?: number,
+    "thumbnail": string | undefined,
+    isDeleted: boolean
+}
+
 export interface CartsSlice {
     totalQuantity: number,
+    discountedTotal: number,
+    totalProducts: number,
+    total: number,
+    products: Product[]
 }
 
 const initialState: CartsSlice = {
     totalQuantity: 0,
+    discountedTotal: 0,
+    total: 0,
+    totalProducts: 0,
+    "products": [
+        {
+            "id": 0,
+            "title": "title",
+            "price": 0,
+            "quantity": 0,
+            "total": 0,
+            "discountPercentage": 0,
+            "discountedTotal": 0,
+            "thumbnail": undefined,
+            isDeleted: false
+        },
+    ]
 }
 
 
@@ -48,10 +80,24 @@ const cartSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: (builder) => {
-        builder
-            .addCase(fetchUserCart.fulfilled, (state, action) => {
-                state.totalQuantity = action?.payload?.carts[0]?.totalQuantity;
-            })
+
+        builder.addCase(fetchUserCart.fulfilled, (state, action) => {
+            const cart = action?.payload?.carts[0];
+
+            const productsWithIsDeleted = cart.products.map((product: Product) => ({
+                ...product,
+                isDeleted: false,
+            }));
+
+            return {
+                ...state,
+                totalQuantity: cart.totalQuantity,
+                total: cart.total,
+                discountedTotal: cart.discountedTotal,
+                totalProducts: cart.totalProducts,
+                products: productsWithIsDeleted,
+            };
+        });
     },
 })
 

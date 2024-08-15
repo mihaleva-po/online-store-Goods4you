@@ -19,7 +19,7 @@
     font-size: 30px;
     font-style: normal;
     font-weight: 700;
-    line-height: 44px; /* 146.667% */
+    line-height: 44px;
     cursor: pointer;
 }
 
@@ -28,7 +28,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
     text-decoration: none;
     display: flex;
     align-items: center;
@@ -49,7 +49,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
-    line-height: 20px; /* 142.857% */
+    line-height: 20px;
     text-decoration-line: underline;
 }
 
@@ -61,7 +61,6 @@
     .container h1 {
         font-size: 20px;
     }
-
 
     .container a {
         font-size: 10px;

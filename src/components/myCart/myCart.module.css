@@ -28,6 +28,15 @@
     justify-content: space-between;
 }
 
+.noItems {
+    color: #B2B5BB;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 36px;
+    text-align: center;
+}
+
 @media (max-width: 1400px) {
     .myCart {
         padding: 40px;

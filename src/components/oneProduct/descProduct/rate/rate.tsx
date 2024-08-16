@@ -13,7 +13,7 @@ const Rate = ({rating}: PropsFace) => {
     return (
         <section className={styles.rate}>
             {
-                new Array(5).fill(0).map((el, i) => (
+                new Array(5).fill(0).map((_, i) => (
                     <div key={i}>
                         <StarSvg color={`${i < rating ? "#F14F4F" : "#D5D5D5"}`}/>
                     </div>

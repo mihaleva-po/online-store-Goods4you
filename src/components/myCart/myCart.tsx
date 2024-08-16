@@ -16,10 +16,15 @@ const MyCart = () => {
             </Helmet>
             <div className={styles.container}>
                 <h1>My cart</h1>
-                <div className={styles.main}>
-                    <ItemsProduct products={cart.products}/>
-                    <TotalPrice cart={cart}/>
-                </div>
+                {
+                    cart.totalQuantity > 0 ?
+                        <div className={styles.main}>
+                            <ItemsProduct products={cart.products}/>
+                            <TotalPrice cart={cart}/>
+                        </div>
+                        :
+                        <p className={styles.noItems}>No items</p>
+                }
             </div>
         </section>
     );

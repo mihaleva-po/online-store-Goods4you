@@ -4,6 +4,7 @@ import DefaultButton from "../../../ui-components/button/defaultButton.tsx";
 import CartSVG from "../../../svg/cartSVG.tsx";
 import {useNavigate} from "react-router-dom";
 import {Product} from "../../../../redux/slices/cartsSlice.ts";
+import {useEffect, useState} from "react";
 
 
 interface propsFace {
@@ -16,6 +17,17 @@ const Card = ({product, isDeleted, onClickDeleted}: propsFace) => {
 
     const navigate = useNavigate();
 
+    const [currentPrice, setCurrentPrice] = useState<number>();
+
+    useEffect(() => {
+        if (product) {
+            const newDiscount = product.discountPercentage !== undefined ? product.discountPercentage : 0;
+            const newPrice = Number((product.price * (100 - newDiscount) / 100).toFixed(2));
+
+            setCurrentPrice(newPrice);
+        }
+    }, [product]);
+
     return (
         <section className={styles.container}>
             <div className={`${styles.nameProduct} ${isDeleted ? styles.opacity : null}`}>
@@ -25,7 +37,7 @@ const Card = ({product, isDeleted, onClickDeleted}: propsFace) => {
                 <div>
                     <p onClick={() => navigate(`/product/${product.id}`)}
                        className={styles.title}>{product.title}</p>
-                    <p className={styles.price}>${product.price}</p>
+                    <p className={styles.price}>${currentPrice}</p>
                 </div>
             </div>
             {

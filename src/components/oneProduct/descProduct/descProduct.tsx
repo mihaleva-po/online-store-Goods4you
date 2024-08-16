@@ -19,13 +19,13 @@ const DescProduct = ({data}: PropsFace) => {
     const items = product?.quantity ? product?.quantity : 0;
 
     const [currentPrice, setCurrentPrice] = useState<number>();
-    const [discount, setDiscount] = useState(data.discountPercentage ?
-        data.discountPercentage : 0);
 
     useEffect(() => {
         if (data) {
-            setDiscount(data.discountPercentage !== undefined ? data.discountPercentage : 0);
-            setCurrentPrice(Number((data.price * (100 - discount) / 100).toFixed(2)));
+            const newDiscount = data.discountPercentage !== undefined ? data.discountPercentage : 0;
+            const newPrice = Number((data.price * (100 - newDiscount) / 100).toFixed(2));
+
+            setCurrentPrice(newPrice);
         }
     }, [data]);
 
@@ -44,7 +44,6 @@ const DescProduct = ({data}: PropsFace) => {
                             </React.Fragment>
                         ))}
                     </div>
-
                 </div>
             </article>
             <p className={styles.availability}>{data.availabilityStatus}</p>
@@ -62,10 +61,9 @@ const DescProduct = ({data}: PropsFace) => {
                     <div className={styles.line}></div>
                     <div className={styles.discount}>
                         <p>Your discount:</p>
-                        <p className={styles.percent}>{discount}%</p>
+                        <p className={styles.percent}>{data.discountPercentage}%</p>
                     </div>
                 </div>
-
                 {
                     items === 0 ?
                         <DefaultButton text={"Add to cart"}/>

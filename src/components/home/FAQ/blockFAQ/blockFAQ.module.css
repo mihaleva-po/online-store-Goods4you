@@ -30,37 +30,28 @@
     justify-content: space-between;
 }
 
-.block {
-    transition: transform 0.5s;
+.containerAnswer {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s;
 }
 
-.rotated {
-    transform: rotate(45deg);
+.open {
+    height: 70px;
+}
+
+.cross {
+    transition: 0.3s ease-in-out;
 }
 
 .containerAnswer {
     border-bottom: 1px solid #FFFFFF;
 }
 
-.answer {
-    display: none;
-    padding-bottom: 20px;
+.rotate {
+    transform: rotate(45deg);
 }
 
-@keyframes animatingOpen {
-    0% {
-        transform: translateY(-50%);
-    }
-    100% {
-        transform: translateY(0%);
-    }
-}
-
-.visible {
-    display: flex;
-    transform: translateY(-150%);
-    animation: animatingOpen 1.1s forwards;
-}
 
 @media (max-width: 1000px) {
     .container, .answer {

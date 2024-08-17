@@ -15,9 +15,8 @@ const Rate = ({rating}: PropsFace) => {
             {
                 new Array(5).fill(0).map((_, i) => (
                     <div key={i}>
-                        <StarSvg color={`${i < rating ? "#F14F4F" : "#D5D5D5"}`}/>
+                        <StarSvg color={i < rating ? "#F14F4F" : "#D5D5D5"}/>
                     </div>
-
                 ))
             }
         </section>

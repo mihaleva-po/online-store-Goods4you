@@ -2,7 +2,7 @@ import styles from './defaultButton.module.css';
 import {ReactNode} from "react";
 
 
-interface propsFace {
+export interface propsFace {
     text?: string,
     svg?: ReactNode,
 }

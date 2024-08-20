@@ -5,11 +5,13 @@ import {ReactNode} from "react";
 export interface propsFace {
     text?: string,
     svg?: ReactNode,
+    type?: "button" | "submit" | "reset" | undefined,
+    disabled?: boolean
 }
 
-const DefaultButton = ({text, svg}: propsFace) => {
+const DefaultButton = ({text, svg, type = "button", disabled}: propsFace) => {
     return (
-        <button className={`${styles.button} ${svg && styles.svg}`}>
+        <button type={type} disabled={disabled} className={`${styles.button} ${svg ? styles.svg : styles.text}`}>
             {text}
             {svg}
         </button>

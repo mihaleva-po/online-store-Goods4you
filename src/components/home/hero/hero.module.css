@@ -81,4 +81,36 @@
     }
 }
 
+@media (max-width: 1000px) {
+    .containerBtn button {
+        padding: 15px 40px;
+    }
+}
 
+@media (max-width: 700px) {
+    .containerBtn button {
+        padding: 10px 30px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 600px) {
+    .containerBtn button {
+        padding: 10px 20px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 500px) {
+    .containerBtn button {
+        padding: 5px 15px;
+        font-size: 8px;
+    }
+}
+
+@media (max-width: 380px) {
+    .containerBtn button {
+        padding: 2px 10px;
+        font-size: 6px;
+    }
+}

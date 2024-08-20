@@ -7,7 +7,7 @@ import {useCart} from "../../context/CartContext.tsx";
 
 const MyCart = () => {
 
-    const cart = useCart();
+    const {cart} = useCart();
 
     return (
         <section className={styles.myCart}>

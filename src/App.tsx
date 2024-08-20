@@ -1,12 +1,12 @@
 import './App.css'
 import ErrorPage from "./routes/errorPage/errorPage.tsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import Home from "./components/home/home.tsx";
 import Header from "./components/main/header/header.tsx";
 import Footer from "./components/main/footer/footer.tsx";
 import OneProduct from "./components/oneProduct/oneProduct.tsx";
 import MyCart from "./components/myCart/myCart.tsx";
 import ScrollToTop from "./handles/scrollToTop.tsx";
+import Login from "./login/login.tsx";
 
 
 function App() {
@@ -14,7 +14,8 @@ function App() {
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <Home/>,
+            // element: <Home/>,
+            element: <Login/>,
             errorElement: <ErrorPage/>
         },
         {

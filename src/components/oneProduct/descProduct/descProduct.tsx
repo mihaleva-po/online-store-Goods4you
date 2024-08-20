@@ -14,7 +14,7 @@ interface PropsFace {
 
 const DescProduct = ({data}: PropsFace) => {
 
-    const cart = useCart();
+    const {cart} = useCart();
     const product = cart.products.find(el => el.id === data.id);
     const items = product?.quantity ? product?.quantity : 0;
 

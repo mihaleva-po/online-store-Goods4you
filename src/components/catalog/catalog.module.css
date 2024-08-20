@@ -55,4 +55,20 @@
     .catalog {
         padding: 28px 60px;
     }
+
+    .containerBtn button {
+        padding: 17px 45px;
+    }
+}
+
+@media (max-width: 700px) {
+    .containerBtn button {
+        padding: 15px 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .containerBtn button {
+        padding: 10px 30px;
+    }
 }

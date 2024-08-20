@@ -3,7 +3,7 @@ import {useCart} from "../../../../context/CartContext.tsx";
 
 
 const CountProducts = () => {
-    const cart = useCart();
+    const {cart} = useCart();
     const totalQuantity = cart.totalQuantity;
 
     return (

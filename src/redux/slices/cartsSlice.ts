@@ -51,7 +51,12 @@ export const fetchUserCart = createAsyncThunk(
 
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
-                const response = await fetch(`https://dummyjson.com/carts/user/${userId}`);
+                const response = await fetch(`https://dummyjson.com/carts/user/${userId}`, {
+                    headers: {
+                        'Authorization': 'Bearer /* YOUR_TOKEN_HERE */',
+                        'Content-Type': 'application/json'
+                    },
+                })
 
                 if (!response.ok) {
                     return rejectWithValue(new Error('Failed to fetch cart data').message);
@@ -84,17 +89,17 @@ const cartSlice = createSlice({
         builder.addCase(fetchUserCart.fulfilled, (state, action) => {
             const cart = action?.payload?.carts[0];
 
-            const productsWithIsDeleted = cart.products.map((product: Product) => ({
+            const productsWithIsDeleted = cart?.products?.map((product: Product) => ({
                 ...product,
                 isDeleted: false,
             }));
 
             return {
                 ...state,
-                totalQuantity: cart.totalQuantity,
-                total: cart.total,
-                discountedTotal: cart.discountedTotal,
-                totalProducts: cart.totalProducts,
+                totalQuantity: cart?.totalQuantity,
+                total: cart?.total,
+                discountedTotal: cart?.discountedTotal,
+                totalProducts: cart?.totalProducts,
                 products: productsWithIsDeleted,
             };
         });

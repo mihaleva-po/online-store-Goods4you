@@ -7,7 +7,7 @@ export const loginUserApi = createApi({
         {baseUrl: 'https://dummyjson.com/'}),
     endpoints: (builder) => ({
 
-        loginUser: builder.mutation<{ token: string, id: number }, {
+        loginUser: builder.mutation<{ token: string, id: number, firstName: string, lastName: string }, {
             username: string,
             password: string,
             expiresInMins?: number
@@ -15,7 +15,10 @@ export const loginUserApi = createApi({
             query: (credentials) => ({
                 url: 'auth/login',
                 method: 'POST',
-                headers: {'Content-Type': 'application/json'},
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                    'Content-Type': 'application/json'
+                },
                 body: credentials,
             }),
         }),

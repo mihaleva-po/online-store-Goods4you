@@ -10,7 +10,7 @@ import {useCart} from "../../../../context/CartContext.tsx";
 const Card = ({id, title, price, discountPercentage, images}: Product) => {
 
     const {cart} = useCart();
-    const product = cart.products.find(el => el.id === id);
+    const product = cart?.products?.find(el => el.id === id);
     const items = product?.quantity ? product?.quantity : 0;
 
     const navigate = useNavigate();

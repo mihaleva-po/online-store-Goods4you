@@ -5,6 +5,7 @@ import ScrollToAnchor from "../../handles/scrollToAnchor.tsx";
 
 
 const Home = () => {
+
     return (
         <section>
             <ScrollToAnchor/>

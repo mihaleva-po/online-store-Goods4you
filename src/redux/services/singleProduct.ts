@@ -8,7 +8,13 @@ export const singleProductApi = createApi({
     endpoints: (builder) => ({
         singleProduct: builder.query<Product, { id: number }>({
             query: ({id}) =>
-                `https://dummyjson.com/products/${id}`,
+                ({
+                    url: `https://dummyjson.com/products/${id}`,
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
         }),
     }),
 })

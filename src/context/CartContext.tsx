@@ -1,23 +1,25 @@
-import React, {createContext, useContext, useEffect, useState} from 'react';
+import React, {createContext, useContext, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from "../redux/store";
 import {CartsSlice, fetchUserCart} from "../redux/slices/cartsSlice";
+import {useAuth} from "./AuthContext.tsx";
 
-const CartContext = createContext<{ cart: CartsSlice; setUserId: (id: number) => void } | null>(null);
+const CartContext = createContext<{ cart: CartsSlice } | null>(null);
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({children}) => {
     const dispatch = useDispatch<AppDispatch>();
     const cart = useSelector((state: RootState) => state.cart);
-    const [userId, setUserId] = useState<number | null>(null);
+    const {user} = useAuth();
 
     useEffect(() => {
-        if (userId !== null) {
-            dispatch(fetchUserCart(userId));
+        console.log('user3', user);
+        if (user?.id !== null && user?.id !== undefined) {
+            dispatch(fetchUserCart(user.id));
         }
-    }, [dispatch, userId]);
+    }, [dispatch, user]);
 
     return (
-        <CartContext.Provider value={{cart, setUserId}}>
+        <CartContext.Provider value={{cart}}>
             {children}
         </CartContext.Provider>
     );

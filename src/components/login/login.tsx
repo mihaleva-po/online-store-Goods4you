@@ -1,9 +1,10 @@
 import styles from './login.module.css';
 import {Formik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from "yup";
-import DefaultButton from "../components/ui-components/button/defaultButton.tsx";
-import {useLoginUserMutation} from "../redux/services/loginUser.ts";
-import {useCart} from "../context/CartContext.tsx";
+import DefaultButton from "../ui-components/button/defaultButton.tsx";
+import {useLoginUserMutation} from "../../redux/services/loginUser.ts";
+import {useAuth} from "../../context/AuthContext.tsx";
+import {useNavigate} from "react-router-dom";
 
 
 const validationSchema = Yup.object({
@@ -25,8 +26,9 @@ interface FormValues {
 
 const Login = () => {
 
+    const {setUser} = useAuth();
+    const navigate = useNavigate();
     const [loginUser, {isLoading, error}] = useLoginUserMutation();
-    const {setUserId} = useCart();
 
     const handleSubmit = async (values: FormValues) => {
         try {
@@ -36,10 +38,14 @@ const Login = () => {
                 expiresInMins: 30,
             }).unwrap();
 
-            setUserId(response.id);
-
-            localStorage.setItem('userId', response.id.toString());
             localStorage.setItem('token', response.token);
+
+            setUser({
+                id: response.id, firstName: response.firstName,
+                lastName: response.lastName
+            });
+
+            navigate('/');
 
         } catch (err) {
             console.error('Login failed:', err);

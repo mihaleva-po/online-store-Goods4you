@@ -30,7 +30,13 @@ export const productsApi = createApi({
     endpoints: (builder) => ({
         searchProducts: builder.query<ProductsResponse, { q: string; limit: number; skip: number }>({
             query: ({q, limit, skip}) =>
-                `products/search?q=${q}&limit=${limit}&skip=${skip}`,
+                ({
+                    url: `products/search?q=${q}&limit=${limit}&skip=${skip}`,
+                    headers: {
+                        'Authorization': `Bearer ${localStorage.getItem("token")}`,
+                        'Content-Type': 'application/json'
+                    }
+                })
         }),
     }),
 });

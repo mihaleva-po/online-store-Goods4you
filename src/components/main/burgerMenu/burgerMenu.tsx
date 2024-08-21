@@ -1,11 +1,21 @@
 import styles from "./burgerMenu.module.css";
 import CartSVG from "../../svg/cartSVG.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CountProducts from "./countProducts/countProducts.tsx";
+import {useAuth} from "../../../context/AuthContext.tsx";
 
 
 const BurgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
+
+    const {user} = useAuth();
+    const [nameUser, setNameUser] = useState<string | null>(null);
+
+    useEffect(() => {
+        if (user) {
+            setNameUser(`${user.firstName} ${user.lastName}`);
+        }
+    }, [user]);
 
     const toggleMenu = () => {
         setIsOpen(!isOpen);
@@ -27,7 +37,9 @@ const BurgerMenu = () => {
                         <CountProducts/>
                     </div>
                 </a>
-                <p className={styles.nameUser}>Johnson Smith</p>
+                <p className={styles.nameUser}>{
+                    nameUser || "Sign in"
+                }</p>
 
             </nav>
         </div>

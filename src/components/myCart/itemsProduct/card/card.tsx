@@ -11,9 +11,10 @@ interface propsFace {
     isDeleted: boolean,
     onClickDeleted: () => void,
     product: Product,
+    products: Product[]
 }
 
-const Card = ({product, isDeleted, onClickDeleted}: propsFace) => {
+const Card = ({products, product, isDeleted, onClickDeleted}: propsFace) => {
 
     const navigate = useNavigate();
 
@@ -32,7 +33,7 @@ const Card = ({product, isDeleted, onClickDeleted}: propsFace) => {
         <section className={styles.container}>
             <div className={`${styles.nameProduct} ${isDeleted ? styles.opacity : null}`}>
                 <img
-                    className={`${product.id === 134 ? "imgClip" : null}`}
+                    className={(product.id === 134 || product.id === 6) ? "imgClip" : undefined}
                     src={product.thumbnail} alt="productImg"/>
                 <div>
                     <p onClick={() => navigate(`/product/${product.id}`)}
@@ -45,7 +46,7 @@ const Card = ({product, isDeleted, onClickDeleted}: propsFace) => {
                     <DefaultButton svg={<CartSVG/>}/>
                     :
                     <div className={styles.countItems}>
-                        <ChangeCountItems items={product.quantity}/>
+                        <ChangeCountItems id={product.id} products={products} items={product.quantity}/>
                         <button onClick={onClickDeleted} className={styles.btnDelete}>Delete</button>
                     </div>
             }

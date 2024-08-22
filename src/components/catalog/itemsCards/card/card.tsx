@@ -5,15 +5,26 @@ import {useNavigate} from "react-router-dom";
 import ChangeCountItems from "../../../ui-components/changeCountItems/changeCountItems.tsx";
 import {Product} from "../../../../redux/services/searchProducts.ts";
 import {useCart} from "../../../../context/CartContext.tsx";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../../../redux/store.ts";
+import {putUserCart} from "../../../../redux/slices/cartsSlice.ts";
 
 
 const Card = ({id, title, price, discountPercentage, images}: Product) => {
 
     const {cart} = useCart();
+
     const product = cart?.products?.find(el => el.id === id);
     const items = product?.quantity ? product?.quantity : 0;
 
     const navigate = useNavigate();
+    const dispatch = useDispatch<AppDispatch>();
+
+    const onClickAddProduct = () => {
+        console.log('1');
+        const r = dispatch(putUserCart({idProduct: id, quantity: 1, products: cart.products}));
+        console.log(r);
+    }
 
     return (
         <section onClick={() => navigate(`/product/${id}`)} className={styles.section}>
@@ -36,9 +47,9 @@ const Card = ({id, title, price, discountPercentage, images}: Product) => {
                 <div onClick={(event) => event.stopPropagation()}>
                     {
                         items === 0 ?
-                            <DefaultButton svg={<CardSVG/>}/>
+                            <DefaultButton onClick={onClickAddProduct} svg={<CardSVG/>}/>
                             :
-                            <ChangeCountItems items={items}/>
+                            <ChangeCountItems id={id} products={cart.products} items={items}/>
                     }
                 </div>
             </div>

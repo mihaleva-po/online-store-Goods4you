@@ -6,6 +6,9 @@ import {useEffect, useState} from "react";
 import React from "react";
 import ChangeCountItems from "../../ui-components/changeCountItems/changeCountItems.tsx";
 import {useCart} from "../../../context/CartContext.tsx";
+import {putUserCart} from "../../../redux/slices/cartsSlice.ts";
+import {useDispatch} from "react-redux";
+import {AppDispatch} from "../../../redux/store.ts";
 
 
 interface PropsFace {
@@ -19,6 +22,7 @@ const DescProduct = ({data}: PropsFace) => {
     const items = product?.quantity ? product?.quantity : 0;
 
     const [currentPrice, setCurrentPrice] = useState<number>();
+    const dispatch = useDispatch<AppDispatch>();
 
     useEffect(() => {
         if (data) {
@@ -28,6 +32,14 @@ const DescProduct = ({data}: PropsFace) => {
             setCurrentPrice(newPrice);
         }
     }, [data]);
+
+    const onClickAddProduct = () => {
+        const r = dispatch(putUserCart({
+            idProduct: product?.id,
+            quantity: 1, products: cart.products
+        }));
+        console.log(r);
+    }
 
     return (
         <section className={styles.container}>
@@ -66,9 +78,11 @@ const DescProduct = ({data}: PropsFace) => {
                 </div>
                 {
                     items === 0 ?
-                        <DefaultButton text={"Add to cart"}/>
+                        <DefaultButton
+                            onClick={onClickAddProduct}
+                            text={"Add to cart"}/>
                         :
-                        <ChangeCountItems items={items}/>
+                        <ChangeCountItems id={product?.id} products={cart.products} items={items}/>
                 }
 
             </article>

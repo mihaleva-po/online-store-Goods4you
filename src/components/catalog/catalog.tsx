@@ -33,7 +33,7 @@ const Catalog = () => {
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
         setSkip(0);
-        setAllProducts([]);  // Сброс списка товаров при новом поиске
+        setAllProducts([]);
     };
 
     const handleShowMore = () => {
@@ -43,7 +43,7 @@ const Catalog = () => {
     };
 
     return (
-        <section id={"catalog"} className={styles.catalog}>
+        <section id="catalog" className={styles.catalog}>
             <div className={styles.container}>
                 <h1>Catalog</h1>
                 <input className={styles.search} type="search" placeholder={"Search by title"}

@@ -16,7 +16,6 @@ export const loginUserApi = createApi({
                 url: 'auth/login',
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem("token")}`,
                     'Content-Type': 'application/json'
                 },
                 body: credentials,

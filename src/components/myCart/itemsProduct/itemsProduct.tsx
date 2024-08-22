@@ -27,7 +27,7 @@ const ItemsProduct = ({products}: PropsFace) => {
             {
                 products.map((product: Product, i: number) => (
                     <div key={i}>
-                        <Card product={product} isDeleted={data[i]?.isDeleted}
+                        <Card products={products} product={product} isDeleted={data[i]?.isDeleted}
                               onClickDeleted={() => onClickDeleted(i)}/>
                     </div>
                 ))

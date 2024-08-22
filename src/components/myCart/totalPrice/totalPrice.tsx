@@ -15,11 +15,11 @@ const TotalPrice = ({cart}: Props) => {
             </div>
             <div className={styles.blockPrice}>
                 <p className={styles.namePrice}>Price without discount</p>
-                <p className={styles.price}>${cart.total}</p>
+                <p className={styles.price}>${Number((cart.total).toFixed(2))}</p>
             </div>
             <div>
                 <p className={styles.nameTotalPrice}>Total price</p>
-                <p className={styles.total}>${cart.discountedTotal}</p>
+                <p className={styles.total}>${Number((cart.discountedTotal).toFixed(2))}</p>
             </div>
         </section>
     );

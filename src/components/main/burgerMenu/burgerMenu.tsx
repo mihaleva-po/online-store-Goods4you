@@ -3,6 +3,7 @@ import CartSVG from "../../svg/cartSVG.tsx";
 import {useEffect, useState} from "react";
 import CountProducts from "./countProducts/countProducts.tsx";
 import {useAuth} from "../../../context/AuthContext.tsx";
+import {Link} from "react-router-dom";
 
 
 const BurgerMenu = () => {
@@ -28,15 +29,15 @@ const BurgerMenu = () => {
             </div>
 
             <nav className={`${styles.menu} ${isOpen ? styles.open : null}`}>
-                <a href="/#catalog">Catalog</a>
-                <a href="/#faq">FAQ</a>
-                <a className={styles.cart} href="/cart">
+                <Link to="/#catalog">Catalog</Link>
+                <Link to="/#faq">FAQ</Link>
+                <Link className={styles.cart} to="/cart">
                     Cart
                     <div className={styles.blockCart}>
                         <CartSVG/>
                         <CountProducts/>
                     </div>
-                </a>
+                </Link>
                 <p className={styles.nameUser}>{
                     nameUser || "Sign in"
                 }</p>

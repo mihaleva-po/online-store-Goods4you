@@ -6,12 +6,14 @@ export interface propsFace {
     text?: string,
     svg?: ReactNode,
     type?: "button" | "submit" | "reset" | undefined,
-    disabled?: boolean
+    disabled?: boolean,
+    onClick?: () => void
 }
 
-const DefaultButton = ({text, svg, type = "button", disabled}: propsFace) => {
+const DefaultButton = ({text, svg, type = "button", disabled, onClick}: propsFace) => {
     return (
-        <button type={type} disabled={disabled} className={`${styles.button} ${svg ? styles.svg : styles.text}`}>
+        <button type={type} disabled={disabled} className={`${styles.button} ${svg ? styles.svg : styles.text}`}
+                onClick={onClick}>
             {text}
             {svg}
         </button>

@@ -1,4 +1,5 @@
 import styles from './footer.module.css';
+import {Link} from "react-router-dom";
 
 
 const Footer = () => {
@@ -6,12 +7,12 @@ const Footer = () => {
         <footer className={styles.footer}>
             <section>
                 <div className={styles.container}>
-                    <a className={styles.aLogo} href={"/"}>
+                    <Link className={styles.aLogo} to={"/"}>
                         <h1>Goods4you</h1>
-                    </a>
+                    </Link>
                     <nav className={styles.menu}>
-                        <a href="/#catalog">Catalog</a>
-                        <a href="/#faq">FAQ</a>
+                        <Link to="/#catalog">Catalog</Link>
+                        <Link to="/#faq">FAQ</Link>
                     </nav>
                 </div>
             </section>

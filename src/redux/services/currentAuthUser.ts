@@ -20,4 +20,5 @@ export const currentAuthUserApi = createApi({
     }),
 });
 
+
 export const {useCurrentAuthUserQuery} = currentAuthUserApi;

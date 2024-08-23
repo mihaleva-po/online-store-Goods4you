@@ -64,18 +64,22 @@ export const fetchUserCart = createAsyncThunk(
 interface PutUserCartProps {
     idProduct?: number,
     quantity?: number,
-    products: ProductCart[]
+    products?: ProductCart[]
 }
 
 export const putUserCart = createAsyncThunk(
     'cart/putUserCart',
     async ({idProduct, quantity, products}: PutUserCartProps, {rejectWithValue}) => {
+
         const maxRetries = 3;
         const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
         if (idProduct === undefined || quantity === undefined) {
             return rejectWithValue('Missing required fields');
         }
+
+        const newProducts = products ? [...products, {id: idProduct, quantity: quantity}] :
+            [{id: idProduct, quantity: quantity}];
 
         for (let attempt = 1; attempt <= maxRetries; attempt++) {
             try {
@@ -87,13 +91,7 @@ export const putUserCart = createAsyncThunk(
                     },
                     body: JSON.stringify({
                         merge: false,
-                        products: [
-                            ...products,
-                            {
-                                id: idProduct,
-                                quantity: quantity,
-                            },
-                        ]
+                        products: newProducts
                     })
                 })
 

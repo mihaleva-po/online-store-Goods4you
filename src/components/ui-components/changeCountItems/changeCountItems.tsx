@@ -2,28 +2,55 @@ import styles from './changeCountItems.module.css';
 import DefaultButton from "../button/defaultButton.tsx";
 import MinusSvg from "../../svg/minusSVG.tsx";
 import PlusSvg from "../../svg/plusSVG.tsx";
-import {Product, putUserCart} from "../../../redux/slices/cartsSlice.ts";
+import {putUserCart} from "../../../redux/slices/cartsSlice.ts";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../../redux/store.ts";
+import {ProductCart} from "../../../types/type.ts";
+import {useState} from "react";
 
 interface propsFace {
     items: number,
     id?: number,
-    products: Product[],
+    products: ProductCart[],
+    stock?: number
 }
 
-const ChangeCountItems = ({id, products, items}: propsFace) => {
+const ChangeCountItems = ({id, products, items, stock = 100}: propsFace) => {
 
     const dispatch = useDispatch<AppDispatch>();
 
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleClickPlus = async () => {
+        setIsLoading(true);
+        try {
+            await dispatch(putUserCart({
+                idProduct: id,
+                quantity: items + 1,
+                products: products
+            }));
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const handleClickMunis = async () => {
+        setIsLoading(true);
+        try {
+            await dispatch(putUserCart({
+                idProduct: id,
+                quantity: items - 1,
+                products: products
+            }));
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     return (
         <section className={styles.blockCountItems}>
-            <DefaultButton svg={<MinusSvg/>}
-                           onClick={() => dispatch(putUserCart({
-                               idProduct: id,
-                               quantity: items - 1,
-                               products: products
-                           }))}/>
+            <DefaultButton svg={<MinusSvg/>} disabled={isLoading}
+                           onClick={handleClickMunis}/>
             <div className={styles.containerCount}>
                 <p className={styles.countItems}>{items}
                     {
@@ -32,11 +59,9 @@ const ChangeCountItems = ({id, products, items}: propsFace) => {
                 </p>
             </div>
             <DefaultButton svg={<PlusSvg/>}
-                           onClick={() => dispatch(putUserCart({
-                               idProduct: id,
-                               quantity: items + 1,
-                               products: products
-                           }))}/>
+                           disabled={stock === items || isLoading}
+                           onClick={handleClickPlus}
+            />
         </section>
     );
 };

@@ -25,6 +25,21 @@ const Card = ({product}: propsFace) => {
 
     const dispatch = useDispatch<AppDispatch>();
 
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleAddToCart = async () => {
+        setIsLoading(true);
+        try {
+            await dispatch(putUserCart({
+                idProduct: product?.id,
+                quantity: 1,
+                products: cart?.products
+            }));
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
     useEffect(() => {
         if (product) {
             const newDiscount = product?.discountPercentage !== undefined ? product?.discountPercentage : 0;
@@ -48,11 +63,8 @@ const Card = ({product}: propsFace) => {
             </div>
             {
                 product?.isDeleted ?
-                    <DefaultButton svg={<CartSVG/>}
-                                   onClick={() => dispatch(putUserCart({
-                                       idProduct: product?.id,
-                                       quantity: 1, products: cart?.products
-                                   }))}/>
+                    <DefaultButton svg={<CartSVG/>} disabled={isLoading}
+                                   onClick={handleAddToCart}/>
                     :
                     <div className={styles.countItems}>
                         <ChangeCountItems

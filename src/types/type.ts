@@ -12,7 +12,7 @@ export interface ProductCatalog {
     price: number,
     discountPercentage: number,
     images: [string],
-
+    stock: number
 }
 
 export interface ProductCart {
@@ -40,4 +40,5 @@ export interface ProductDescription {
     shippingInformation: string,
     warrantyInformation: string,
     description: string,
+    stock: number
 }

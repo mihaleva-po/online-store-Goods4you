@@ -1,4 +1,5 @@
 import React, {createContext, useState, useEffect, ReactNode} from 'react';
+import {useCurrentAuthUserQuery} from "../redux/services/currentAuthUser.ts";
 
 interface User {
     id: number;
@@ -16,18 +17,19 @@ const AuthContext = createContext<AuthContextProps | undefined>(undefined);
 
 export const AuthProvider = ({children}: { children: ReactNode }) => {
     const [user, setUser] = useState<User | null>(null);
+    const {data, isLoading, isError} = useCurrentAuthUserQuery(undefined);
 
     const logout = () => {
+        console.log('2', user);
         setUser(null);
         localStorage.removeItem('token');
     };
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (!token) {
-            setUser(null);
+        if (data && !user) {
+            setUser({id: data.id, firstName: data.firstName, lastName: data.lastName})
         }
-    }, [user]);
+    }, [data, isLoading, isError, user]);
 
     return (
         <AuthContext.Provider value={{user, setUser, logout}}>

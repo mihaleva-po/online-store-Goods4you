@@ -8,9 +8,10 @@ import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../../../redux/store.ts";
 import {putUserCart} from "../../../../redux/slices/cartsSlice.ts";
 import {ProductCatalog} from "../../../../types/type.ts";
+import {useState} from "react";
 
 
-const Card = ({id, title, price, discountPercentage, images}: ProductCatalog) => {
+const Card = ({id, title, price, discountPercentage, images, stock}: ProductCatalog) => {
 
     const {cart} = useCart();
     const product = cart?.products?.find(el => el?.id === id);
@@ -18,6 +19,21 @@ const Card = ({id, title, price, discountPercentage, images}: ProductCatalog) =>
 
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
+
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleAddProduct = async () => {
+        setIsLoading(true);
+        try {
+            await dispatch(putUserCart({
+                idProduct: id,
+                quantity: 1,
+                products: cart?.products
+            }))
+        } finally {
+            setIsLoading(false);
+        }
+    }
 
     return (
         <section onClick={() => navigate(`/product/${id}`)} className={styles.section}>
@@ -40,14 +56,10 @@ const Card = ({id, title, price, discountPercentage, images}: ProductCatalog) =>
                 <div onClick={(event) => event.stopPropagation()}>
                     {
                         items === 0 ?
-                            <DefaultButton svg={<CardSVG/>}
-                                           onClick={() => dispatch(putUserCart({
-                                               idProduct: id,
-                                               quantity: 1,
-                                               products: cart?.products
-                                           }))}/>
+                            <DefaultButton svg={<CardSVG/>} disabled={items === stock || isLoading}
+                                           onClick={handleAddProduct}/>
                             :
-                            <ChangeCountItems id={id} products={cart?.products} items={items}/>
+                            <ChangeCountItems id={id} products={cart?.products} items={items} stock={stock}/>
                     }
                 </div>
             </div>

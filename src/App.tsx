@@ -21,7 +21,6 @@ function App() {
 
     useEffect(() => {
         if (isError) {
-            console.log('error');
             logout();
             navigate("/login");
         }
@@ -32,18 +31,24 @@ function App() {
             <Header/>
             <main className={"main"}>
                 <Routes>
-                    <Route path={"*"} element={<Navigate to={"/login"} replace={true}/>}/>
+
                     <Route path="/404" element={<ErrorPage/>}/>
+
                     {
                         localStorage.getItem("token") ? (
                                 <>
                                     <Route path="/" element={<Home/>}/>
                                     <Route path="/cart" element={<MyCart/>}/>
                                     <Route path="/product/:id" element={<OneProduct/>}/>
+                                    <Route path="/login" element={<Navigate to="/" replace={true}/>}/>
+                                    <Route path="*" element={<Navigate to="/404" replace={true}/>}/>
                                 </>
                             )
                             : (
-                                <Route path="/login" element={<Login/>}/>
+                                <>
+                                    <Route path="/login" element={<Login/>}/>
+                                    <Route path="*" element={<Navigate to="/login" replace={true}/>}/>
+                                </>
                             )
                     }
                 </Routes>

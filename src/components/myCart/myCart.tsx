@@ -17,7 +17,7 @@ const MyCart = () => {
             <div className={styles.container}>
                 <h1>My cart</h1>
                 {
-                    cart?.products[0]?.isDeleted && cart?.products[0]?.quantity === 0 ?
+                    cart.totalQuantity > 0 ?
                         <div className={styles.main}>
                             <ItemsProduct/>
                             <TotalPrice/>

@@ -24,6 +24,22 @@ const DescProduct = ({data}: PropsFace) => {
     const [currentPrice, setCurrentPrice] = useState<number>();
     const dispatch = useDispatch<AppDispatch>();
 
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleAddToCart = async () => {
+        setIsLoading(true);
+        try {
+            await dispatch(putUserCart({
+                idProduct: data.id,
+                quantity: 1,
+                products: cart?.products
+            }));
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+
     useEffect(() => {
         if (data) {
             const newDiscount = data?.discountPercentage !== undefined ? data?.discountPercentage : 0;
@@ -71,12 +87,9 @@ const DescProduct = ({data}: PropsFace) => {
                 </div>
                 {
                     items === 0 ?
-                        <DefaultButton
-                            onClick={() => dispatch(putUserCart({
-                                idProduct: product?.id,
-                                quantity: 1, products: cart?.products
-                            }))}
-                            text={"Add to cart"}/>
+                        <DefaultButton disabled={data.stock === items || isLoading}
+                                       onClick={handleAddToCart}
+                                       text={"Add to cart"}/>
                         :
                         <ChangeCountItems id={product?.id} products={cart?.products} items={items}/>
                 }

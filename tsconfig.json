@@ -10,6 +10,7 @@
   ],
 
   "compilerOptions": {
+    "types": ["vitest/globals"],
     "baseUrl": "./",
     "paths": {
       "@components/*": ["src/components/*"],

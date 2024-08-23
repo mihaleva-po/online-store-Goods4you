@@ -1,11 +1,10 @@
 import styles from './totalPrice.module.css';
-import {CartsSlice} from "../../../redux/slices/cartsSlice.ts";
+import {useCart} from "../../../context/CartContext.tsx";
 
-interface Props {
-    cart: CartsSlice
-}
 
-const TotalPrice = ({cart}: Props) => {
+const TotalPrice = () => {
+
+    const {cart} = useCart();
 
     return (
         <section className={styles.totalPrice}>

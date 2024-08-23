@@ -3,18 +3,17 @@ import CardSVG from "../../../svg/cartSVG.tsx";
 import styles from './card.module.css';
 import {useNavigate} from "react-router-dom";
 import ChangeCountItems from "../../../ui-components/changeCountItems/changeCountItems.tsx";
-import {Product} from "../../../../redux/services/searchProducts.ts";
 import {useCart} from "../../../../context/CartContext.tsx";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../../../redux/store.ts";
 import {putUserCart} from "../../../../redux/slices/cartsSlice.ts";
+import {ProductCatalog} from "../../../../types/type.ts";
 
 
-const Card = ({id, title, price, discountPercentage, images}: Product) => {
+const Card = ({id, title, price, discountPercentage, images}: ProductCatalog) => {
 
     const {cart} = useCart();
-
-    const product = cart?.products?.find(el => el.id === id);
+    const product = cart?.products?.find(el => el?.id === id);
     const items = product?.quantity ? product?.quantity : 0;
 
     const navigate = useNavigate();
@@ -45,10 +44,10 @@ const Card = ({id, title, price, discountPercentage, images}: Product) => {
                                            onClick={() => dispatch(putUserCart({
                                                idProduct: id,
                                                quantity: 1,
-                                               products: cart.products
+                                               products: cart?.products
                                            }))}/>
                             :
-                            <ChangeCountItems id={id} products={cart.products} items={items}/>
+                            <ChangeCountItems id={id} products={cart?.products} items={items}/>
                     }
                 </div>
             </div>

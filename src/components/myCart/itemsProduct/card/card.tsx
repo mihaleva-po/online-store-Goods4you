@@ -3,18 +3,21 @@ import ChangeCountItems from "../../../ui-components/changeCountItems/changeCoun
 import DefaultButton from "../../../ui-components/button/defaultButton.tsx";
 import CartSVG from "../../../svg/cartSVG.tsx";
 import {useNavigate} from "react-router-dom";
-import {Product, putUserCart} from "../../../../redux/slices/cartsSlice.ts";
+import {putUserCart} from "../../../../redux/slices/cartsSlice.ts";
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
 import {AppDispatch} from "../../../../redux/store.ts";
+import {useCart} from "../../../../context/CartContext.tsx";
+import {ProductCart} from "../../../../types/type.ts";
 
 
 interface propsFace {
-    product: Product,
-    products: Product[]
+    product: ProductCart,
 }
 
-const Card = ({products, product}: propsFace) => {
+const Card = ({product}: propsFace) => {
+
+    const {cart} = useCart();
 
     const navigate = useNavigate();
 
@@ -24,8 +27,8 @@ const Card = ({products, product}: propsFace) => {
 
     useEffect(() => {
         if (product) {
-            const newDiscount = product.discountPercentage !== undefined ? product.discountPercentage : 0;
-            const newPrice = Number((product.price * (100 - newDiscount) / 100).toFixed(2));
+            const newDiscount = product?.discountPercentage !== undefined ? product?.discountPercentage : 0;
+            const newPrice = Number((product?.price * (100 - newDiscount) / 100).toFixed(2));
 
             setCurrentPrice(newPrice);
         }
@@ -33,32 +36,32 @@ const Card = ({products, product}: propsFace) => {
 
     return (
         <section className={styles.container}>
-            <div className={`${styles.nameProduct} ${product.isDeleted ? styles.opacity : null}`}>
+            <div className={`${styles.nameProduct} ${product?.isDeleted ? styles.opacity : null}`}>
                 <img
-                    className={(product.id === 134 || product.id === 6) ? "imgClip" : undefined}
-                    src={product.thumbnail} alt="productImg"/>
+                    className={(product?.id === 134 || product?.id === 6) ? "imgClip" : undefined}
+                    src={product?.thumbnail} alt="productImg"/>
                 <div>
-                    <p onClick={() => navigate(`/product/${product.id}`)}
-                       className={styles.title}>{product.title}</p>
+                    <p onClick={() => navigate(`/product/${product?.id}`)}
+                       className={styles.title}>{product?.title}</p>
                     <p className={styles.price}>${currentPrice}</p>
                 </div>
             </div>
             {
-                product.isDeleted ?
+                product?.isDeleted ?
                     <DefaultButton svg={<CartSVG/>}
                                    onClick={() => dispatch(putUserCart({
-                                       idProduct: product.id,
-                                       quantity: 1, products: products
+                                       idProduct: product?.id,
+                                       quantity: 1, products: cart?.products
                                    }))}/>
                     :
                     <div className={styles.countItems}>
                         <ChangeCountItems
-                            id={product.id}
-                            products={products} items={product.quantity}/>
+                            id={product?.id}
+                            products={cart?.products} items={product?.quantity}/>
 
                         <button onClick={() => dispatch(putUserCart({
-                            idProduct: product.id,
-                            quantity: 0, products: products
+                            idProduct: product?.id,
+                            quantity: 0, products: cart?.products
                         }))} className={styles.btnDelete}>Delete
                         </button>
                     </div>

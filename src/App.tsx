@@ -1,48 +1,51 @@
 import './App.css'
 import ErrorPage from "./routes/errorPage/errorPage.tsx";
-import {Route, Routes} from "react-router-dom";
+import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Header from "./components/main/header/header.tsx";
 import Footer from "./components/main/footer/footer.tsx";
 import OneProduct from "./components/oneProduct/oneProduct.tsx";
 import MyCart from "./components/myCart/myCart.tsx";
-// import ScrollToTop from "./handles/scrollToTop.tsx";
 import Home from "./components/home/home.tsx";
 import Login from "./components/login/login.tsx";
-// import {useTokenExpiration} from "./hooks/useTokenExpiration.ts";
-import ProtectedRoute from "./routes/protectedRoute/protectedRoute.tsx";
-import RedirectIfAuthenticated from "./routes/redirectIfAuthenticated/redirectIfAuthenticated.tsx";
+import {useEffect} from "react";
+import {useCurrentAuthUserQuery} from "./redux/services/currentAuthUser.ts";
+import {useAuth} from "./context/AuthContext.tsx";
 
 
 function App() {
 
-    // useTokenExpiration();
+    const navigate = useNavigate();
+    const {logout} = useAuth();
+
+    const {data, isLoading, isError} = useCurrentAuthUserQuery(undefined);
+
+    useEffect(() => {
+        if (isError) {
+            console.log('error');
+            logout();
+            navigate("/login");
+        }
+    }, [data, isLoading, isError]);
 
     return (
         <div className={"app"}>
             <Header/>
             <main className={"main"}>
                 <Routes>
-                    {/* Открытые маршруты */}
-                    <Route path="/login" element={
-                        <RedirectIfAuthenticated>
-                            <Login/>
-                        </RedirectIfAuthenticated>
-                    }/>
+                    <Route path={"*"} element={<Navigate to={"/login"} replace={true}/>}/>
                     <Route path="/404" element={<ErrorPage/>}/>
-
-                    {/* Защищенные маршруты через ProtectedRoute */}
-                    <Route element={<ProtectedRoute/>}>
-                        <Route path="/" element={<Home/>}/>
-                        <Route path="/cart" element={<MyCart/>}/>
-                        <Route
-                            path="/product/:id"
-                            element={
-                                // <ScrollToTop>
-                                <OneProduct/>
-                                // </ScrollToTop>
-                            }
-                        />
-                    </Route>
+                    {
+                        localStorage.getItem("token") ? (
+                                <>
+                                    <Route path="/" element={<Home/>}/>
+                                    <Route path="/cart" element={<MyCart/>}/>
+                                    <Route path="/product/:id" element={<OneProduct/>}/>
+                                </>
+                            )
+                            : (
+                                <Route path="/login" element={<Login/>}/>
+                            )
+                    }
                 </Routes>
             </main>
             <Footer/>

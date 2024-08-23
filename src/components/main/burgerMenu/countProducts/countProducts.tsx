@@ -4,7 +4,7 @@ import {useCart} from "../../../../context/CartContext.tsx";
 
 const CountProducts = () => {
     const {cart} = useCart();
-    const totalQuantity = cart.totalQuantity;
+    const totalQuantity = cart?.totalQuantity;
 
     return (
         <section>

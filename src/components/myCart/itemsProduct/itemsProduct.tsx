@@ -1,19 +1,19 @@
 import styles from './itemsProduct.module.css';
 import Card from "./card/card.tsx";
-import {Product} from "../../../redux/slices/cartsSlice.ts";
+import {useCart} from "../../../context/CartContext.tsx";
+import {ProductCart} from "../../../types/type.ts";
 
-interface PropsFace {
-    products: Product[]
-}
 
-const ItemsProduct = ({products}: PropsFace) => {
+const ItemsProduct = () => {
+
+    const {cart} = useCart();
 
     return (
         <section className={styles.container}>
             {
-                products.map((product: Product, i: number) => (
+                cart?.products?.map((product: ProductCart, i: number) => (
                     <div key={i}>
-                        <Card products={products} product={product}/>
+                        <Card product={product}/>
                     </div>
                 ))
             }

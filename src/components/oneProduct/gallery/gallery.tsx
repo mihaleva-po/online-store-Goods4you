@@ -22,7 +22,7 @@ const Gallery = ({images}: PropsFace) => {
             <article className={styles.galleryPhoto}>
                 {
                     images.length > 1 &&
-                    images.map((img, i) => (
+                    images?.map((img, i) => (
                         <div onClick={() => handleClickPhoto(i)} key={i}>
                             <img src={img} alt={`productImg`}
                                  className={`${styles.smallPhoto} ${i === numberPhoto ? styles.activePhoto : null}`}/>

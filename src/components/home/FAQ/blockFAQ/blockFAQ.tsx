@@ -16,7 +16,6 @@ const BlockFaq = ({textQues, textAnswer}: propsFace) => {
     };
 
     return (
-
         <section onClick={handleBlockClick} className={styles.container}>
             <article className={styles.blockques}>
                 <p className={styles.question}>{textQues}</p>

@@ -1,25 +1,6 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {CartsSlice, ProductCart} from "../../types/type.ts";
 
-
-export interface Product {
-    "id": number,
-    "title": string,
-    "price": number,
-    "quantity": number,
-    "total"?: number,
-    "discountPercentage"?: number,
-    "discountedTotal"?: number,
-    "thumbnail": string | undefined,
-    isDeleted: boolean
-}
-
-export interface CartsSlice {
-    totalQuantity: number,
-    discountedTotal: number,
-    totalProducts: number,
-    total: number,
-    products: Product[]
-}
 
 const initialState: CartsSlice = {
     totalQuantity: 0,
@@ -28,14 +9,14 @@ const initialState: CartsSlice = {
     totalProducts: 0,
     products: [
         {
-            "id": 0,
-            "title": "title",
-            "price": 0,
-            "quantity": 0,
-            "total": 0,
-            "discountPercentage": 0,
-            "discountedTotal": 0,
-            "thumbnail": undefined,
+            id: 0,
+            title: "title",
+            price: 0,
+            quantity: 0,
+            total: 0,
+            discountPercentage: 0,
+            discountedTotal: 0,
+            thumbnail: "",
             isDeleted: false
         },
     ]
@@ -83,7 +64,7 @@ export const fetchUserCart = createAsyncThunk(
 interface PutUserCartProps {
     idProduct?: number,
     quantity?: number,
-    products: Product[]
+    products: ProductCart[]
 }
 
 export const putUserCart = createAsyncThunk(
@@ -148,7 +129,7 @@ const cartSlice = createSlice({
         builder.addCase(fetchUserCart.fulfilled, (state, action) => {
             const cart = action?.payload?.carts[0];
 
-            const productsWithIsDeleted = cart?.products?.map((product: Product) => ({
+            const productsWithIsDeleted = cart?.products?.map((product: ProductCart) => ({
                 ...product,
                 isDeleted: false,
             }));
@@ -167,10 +148,10 @@ const cartSlice = createSlice({
         builder.addCase(putUserCart.fulfilled, (state, action) => {
             const cart = action?.payload;
 
-            const productsWithIsDeleted = cart?.products?.map((product: Product) =>
+            const productsWithIsDeleted = cart?.products?.map((product: ProductCart) =>
                 ({...product, isDeleted: product.quantity === 0}));
 
-            const totalProducts = productsWithIsDeleted.reduce((count: number, product: Product) => {
+            const totalProducts = productsWithIsDeleted.reduce((count: number, product: ProductCart) => {
                 if (!product.isDeleted) {
                     return count + 1;
                 }

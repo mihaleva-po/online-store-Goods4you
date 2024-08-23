@@ -1,9 +1,10 @@
 import Card from "./card/card.tsx";
 import styles from './itemsCard.module.css';
-import {Product} from "../../../redux/services/searchProducts.ts";
+import {ProductCatalog} from "../../../types/type.ts";
+
 
 interface PropsFace {
-    data: Product[]
+    data: ProductCatalog[]
 }
 
 const ItemsCards = ({data}: PropsFace) => {
@@ -13,9 +14,9 @@ const ItemsCards = ({data}: PropsFace) => {
             {
                 data.map((product, i) => (
                     <article key={i}>
-                        <Card id={product.id} images={product.images}
-                              title={product.title} price={product.price}
-                              discountPercentage={product.discountPercentage}/>
+                        <Card id={product?.id} images={product?.images}
+                              title={product?.title} price={product?.price}
+                              discountPercentage={product?.discountPercentage}/>
                     </article>
                 ))
             }

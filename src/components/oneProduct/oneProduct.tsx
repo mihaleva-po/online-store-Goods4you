@@ -6,7 +6,6 @@ import {useParams} from "react-router-dom";
 import {useSingleProductQuery} from "../../redux/services/singleProduct.ts";
 import ErrorPage from "../../routes/errorPage/errorPage.tsx";
 
-
 const OneProduct = () => {
 
     const {id} = useParams<{ id: string }>();
@@ -20,7 +19,6 @@ const OneProduct = () => {
 
     return (
         <section className={styles.oneProduct}>
-
             {
                 data &&
                 (

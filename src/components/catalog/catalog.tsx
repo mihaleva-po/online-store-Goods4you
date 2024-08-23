@@ -2,8 +2,9 @@ import styles from './catalog.module.css';
 import DefaultButton from "../ui-components/button/defaultButton.tsx";
 import React, {useEffect, useState} from "react";
 import {useDebounce} from 'use-debounce';
-import {Product, useSearchProductsQuery} from '../../redux/services/searchProducts.ts';
+import {useSearchProductsQuery} from '../../redux/services/searchProducts.ts';
 import ItemsCards from "./itemsCards/itemsCards.tsx";
+import {ProductCatalog} from "../../types/type.ts";
 
 const Catalog = () => {
 
@@ -13,7 +14,7 @@ const Catalog = () => {
     const [skip, setSkip] = useState(0);
     const [debouncedSearchTerm] = useDebounce(searchTerm, 500);
 
-    const [allProducts, setAllProducts] = useState<Product[]>([]);
+    const [allProducts, setAllProducts] = useState<ProductCatalog[]>([]);
 
     const {data, error, isLoading} =
         useSearchProductsQuery({
@@ -37,7 +38,7 @@ const Catalog = () => {
     };
 
     const handleShowMore = () => {
-        if (data && skip + LIMIT < data.total) {
+        if (data && skip + LIMIT < data?.total) {
             setSkip((prevSkip) => prevSkip + LIMIT);
         }
     };

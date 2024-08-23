@@ -26,7 +26,7 @@ interface FormValues {
 
 const Login = () => {
 
-    const {setUser, logout} = useAuth();
+    const {setUser} = useAuth();
 
     const navigate = useNavigate();
     const [loginUser, {isLoading, error}] = useLoginUserMutation();
@@ -34,8 +34,8 @@ const Login = () => {
     const handleSubmit = async (values: FormValues) => {
         try {
             const response = await loginUser({
-                username: values.login,
-                password: values.password,
+                username: values?.login,
+                password: values?.password,
                 expiresInMins: 30,
             }).unwrap();
 
@@ -46,14 +46,7 @@ const Login = () => {
                 lastName: response.lastName
             });
 
-            const expirationTime = 15 * 60 * 1000; // 15 минут в миллисекундах
-            setTimeout(() => {
-                logout();
-                navigate('/login');
-            }, expirationTime);
-
             navigate('/');
-
 
         } catch (err) {
             console.error('Login failed:', err);

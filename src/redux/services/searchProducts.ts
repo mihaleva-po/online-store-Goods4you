@@ -1,24 +1,9 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/query/react';
+import {ProductCatalog} from "../../types/type.ts";
 
-export interface Product {
-    id: number;
-    title: string;
-    description?: string;
-    category?: string;
-    price: number;
-    discountPercentage?: number;
-    rating?: number;
-    stock?: number;
-    images: [string],
-    availabilityStatus?: string,
-    warrantyInformation?: string,
-    shippingInformation?: string,
-    tags?: [string],
-    thumbnail?: string
-}
 
 export interface ProductsResponse {
-    products: Product[];
+    products: ProductCatalog[];
     total: number;
     skip: number;
     limit: number;

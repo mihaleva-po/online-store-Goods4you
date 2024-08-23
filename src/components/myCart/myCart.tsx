@@ -17,10 +17,10 @@ const MyCart = () => {
             <div className={styles.container}>
                 <h1>My cart</h1>
                 {
-                    cart ?
+                    cart?.products[0]?.isDeleted && cart?.products[0]?.quantity === 0 ?
                         <div className={styles.main}>
-                            <ItemsProduct products={cart.products}/>
-                            <TotalPrice cart={cart}/>
+                            <ItemsProduct/>
+                            <TotalPrice/>
                         </div>
                         :
                         <p className={styles.noItems}>No items</p>

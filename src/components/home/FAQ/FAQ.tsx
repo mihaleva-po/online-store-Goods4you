@@ -30,7 +30,7 @@ const Faq = () => {
                 {
                     data.map((el, i) => (
                         <article key={i}>
-                            <BlockFaq textQues={el.question} textAnswer={answer}/>
+                            <BlockFaq textQues={el?.question} textAnswer={answer}/>
                         </article>
                     ))
                 }

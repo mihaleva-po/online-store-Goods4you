@@ -1,8 +1,10 @@
 import React, {createContext, useContext, useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {AppDispatch, RootState} from "../redux/store";
-import {CartsSlice, fetchUserCart} from "../redux/slices/cartsSlice";
+import {fetchUserCart} from "../redux/slices/cartsSlice";
 import {useAuth} from "./AuthContext.tsx";
+import {CartsSlice} from "../types/type.ts";
+
 
 const CartContext = createContext<{ cart: CartsSlice } | null>(null);
 

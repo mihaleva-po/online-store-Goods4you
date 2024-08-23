@@ -20,12 +20,6 @@ const Card = ({id, title, price, discountPercentage, images}: Product) => {
     const navigate = useNavigate();
     const dispatch = useDispatch<AppDispatch>();
 
-    const onClickAddProduct = () => {
-        console.log('1');
-        const r = dispatch(putUserCart({idProduct: id, quantity: 1, products: cart.products}));
-        console.log(r);
-    }
-
     return (
         <section onClick={() => navigate(`/product/${id}`)} className={styles.section}>
             <figure className={styles.containerImg}>
@@ -47,7 +41,12 @@ const Card = ({id, title, price, discountPercentage, images}: Product) => {
                 <div onClick={(event) => event.stopPropagation()}>
                     {
                         items === 0 ?
-                            <DefaultButton onClick={onClickAddProduct} svg={<CardSVG/>}/>
+                            <DefaultButton svg={<CardSVG/>}
+                                           onClick={() => dispatch(putUserCart({
+                                               idProduct: id,
+                                               quantity: 1,
+                                               products: cart.products
+                                           }))}/>
                             :
                             <ChangeCountItems id={id} products={cart.products} items={items}/>
                     }

@@ -79,6 +79,7 @@ export const fetchUserCart = createAsyncThunk(
     }
 )
 
+
 interface PutUserCartProps {
     idProduct?: number,
     quantity?: number,
@@ -91,7 +92,7 @@ export const putUserCart = createAsyncThunk(
         const maxRetries = 3;
         const delay = (ms: number) => new Promise((res) => setTimeout(res, ms));
 
-        if (!idProduct || !quantity) {
+        if (idProduct === undefined || quantity === undefined) {
             return rejectWithValue('Missing required fields');
         }
 
@@ -162,20 +163,26 @@ const cartSlice = createSlice({
             };
         });
 
+
         builder.addCase(putUserCart.fulfilled, (state, action) => {
             const cart = action?.payload;
 
-            const productsWithIsDeleted = cart?.products?.map((product: Product) => ({
-                ...product,
-                isDeleted: false,
-            }));
+            const productsWithIsDeleted = cart?.products?.map((product: Product) =>
+                ({...product, isDeleted: product.quantity === 0}));
+
+            const totalProducts = productsWithIsDeleted.reduce((count: number, product: Product) => {
+                if (!product.isDeleted) {
+                    return count + 1;
+                }
+                return count;
+            }, 0);
 
             return {
                 ...state,
                 totalQuantity: cart?.totalQuantity,
                 total: cart?.total,
                 discountedTotal: cart?.discountedTotal,
-                totalProducts: cart?.totalProducts,
+                totalProducts: totalProducts,
                 products: productsWithIsDeleted,
             }
         })

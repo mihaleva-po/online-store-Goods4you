@@ -20,7 +20,6 @@ export const AuthProvider = ({children}: { children: ReactNode }) => {
     const {data, isLoading, isError} = useCurrentAuthUserQuery(undefined);
 
     const logout = () => {
-        console.log('2', user);
         setUser(null);
         localStorage.removeItem('token');
     };

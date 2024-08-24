@@ -46,11 +46,6 @@ const Login = () => {
                 lastName: response.lastName
             });
 
-            console.log({
-                id: response.id, firstName: response.firstName,
-                lastName: response.lastName
-            });
-
             navigate('/');
 
         } catch (err) {

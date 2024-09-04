@@ -60,9 +60,14 @@
     }
 }
 
-.showDetails:hover {
+.section:hover .showDetails {
     animation: show 1s forwards;
 }
+
+.section:hover .title {
+    text-decoration: underline;
+}
+
 
 .showDetails {
     opacity: 0;

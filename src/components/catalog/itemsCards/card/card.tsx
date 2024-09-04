@@ -38,7 +38,7 @@ const Card = ({id, title, price, discountPercentage, images, stock}: ProductCata
     return (
         <section onClick={() => navigate(`/product/${id}`)} className={styles.section}>
             <figure className={styles.containerImg}>
-                <img src={images[0]} alt="productImg"/>
+                <img src={images[0]} alt="Product Image"/>
             </figure>
 
             <div className={styles.showDetails}>

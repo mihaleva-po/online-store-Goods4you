@@ -57,6 +57,10 @@ body {
     min-height: 100vh;
 }
 
+button, input {
+    font-family: 'Jost', sans-serif;
+}
+
 p {
     margin: 0;
     padding: 0;

@@ -10,7 +10,7 @@ const ErrorPage = () => {
             </Helmet>
             <div className={styles.container}>
                 <figure>
-                    <img src={error404} alt="error404"/>
+                    <img src={error404} alt="error 404"/>
                 </figure>
             </div>
         </section>

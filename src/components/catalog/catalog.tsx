@@ -46,7 +46,7 @@ const Catalog = () => {
     return (
         <section id="catalog" className={styles.catalog}>
             <div className={styles.container}>
-                <h1>Catalog</h1>
+                <h2>Catalog</h2>
                 <input className={styles.search} type="search" placeholder={"Search by title"}
                        value={searchTerm} onChange={handleSearchChange}/>
 

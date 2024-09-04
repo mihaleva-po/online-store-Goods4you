@@ -19,7 +19,7 @@ const BlockFaq = ({textQues, textAnswer}: propsFace) => {
         <section onClick={handleBlockClick} className={styles.container}>
             <article className={styles.blockques}>
                 <p className={styles.question}>{textQues}</p>
-                <div className={`${styles.cross} ${isOpen && styles.rotate}`}>
+                <div className={`${styles.cross} ${isOpen && styles.rotate}`} aria-label={"open close answer"}>
                     <CloseSVG/>
                 </div>
             </article>

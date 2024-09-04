@@ -33,7 +33,7 @@ const BurgerMenu = () => {
                 <Link to="/#faq">FAQ</Link>
                 <Link className={styles.cart} to="/cart">
                     Cart
-                    <div className={styles.blockCart}>
+                    <div className={styles.blockCart} aria-label={"cart user"}>
                         <CartSVG/>
                         <CountProducts/>
                     </div>

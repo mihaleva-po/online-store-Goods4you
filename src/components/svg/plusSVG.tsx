@@ -1,6 +1,6 @@
 const PlusSvg = () => {
     return (
-        <svg aria-label={"increase count"} width="18" height="18" viewBox="0 0 18 18" fill="none"
+        <svg aria-hidden={true} width="18" height="18" viewBox="0 0 18 18" fill="none"
              xmlns="http://www.w3.org/2000/svg">
             <g id="plus">
                 <path id="Vector 3"

@@ -12,7 +12,7 @@ const Rate = ({rating}: PropsFace) => {
         <section className={styles.rate}>
             {
                 new Array(5).fill(0).map((_, i) => (
-                    <div key={i}>
+                    <div key={i} aria-label={"star rate"}>
                         <StarSvg color={i < Math.round(rating) ? "#F14F4F" : "#D5D5D5"}/>
                     </div>
                 ))

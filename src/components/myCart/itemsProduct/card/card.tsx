@@ -54,7 +54,7 @@ const Card = ({product}: propsFace) => {
             <div className={`${styles.nameProduct} ${product?.isDeleted ? styles.opacity : null}`}>
                 <img
                     className={(product?.id === 134 || product?.id === 6) ? "imgClip" : undefined}
-                    src={product?.thumbnail} alt="productImg"/>
+                    src={product?.thumbnail} alt="Product Image"/>
                 <div>
                     <p onClick={() => navigate(`/product/${product?.id}`)}
                        className={styles.title}>{product?.title}</p>
@@ -63,8 +63,11 @@ const Card = ({product}: propsFace) => {
             </div>
             {
                 product?.isDeleted ?
-                    <DefaultButton svg={<CartSVG/>} disabled={isLoading}
-                                   onClick={handleAddToCart}/>
+                    <div aria-label={"add to cart"}>
+                        <DefaultButton svg={<CartSVG/>} disabled={isLoading}
+                                       onClick={handleAddToCart}/>
+                    </div>
+
                     :
                     <div className={styles.countItems}>
                         <ChangeCountItems

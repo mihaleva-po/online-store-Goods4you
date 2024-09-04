@@ -49,8 +49,11 @@ const ChangeCountItems = ({id, products, items, stock = 100}: propsFace) => {
 
     return (
         <section className={styles.blockCountItems}>
-            <DefaultButton svg={<MinusSvg/>} disabled={isLoading}
-                           onClick={handleClickMunis}/>
+            <div aria-label={"reduce count"}>
+                <DefaultButton svg={<MinusSvg/>} disabled={isLoading}
+                               onClick={handleClickMunis}/>
+            </div>
+
             <div className={styles.containerCount}>
                 <p className={styles.countItems}>{items}
                     {
@@ -58,10 +61,12 @@ const ChangeCountItems = ({id, products, items, stock = 100}: propsFace) => {
                     }
                 </p>
             </div>
-            <DefaultButton svg={<PlusSvg/>}
-                           disabled={stock === items || isLoading}
-                           onClick={handleClickPlus}
-            />
+            <div aria-label={"increase count"}>
+                <DefaultButton svg={<PlusSvg/>}
+                               disabled={stock === items || isLoading}
+                               onClick={handleClickPlus}
+                />
+            </div>
         </section>
     );
 };

@@ -18,13 +18,13 @@ const Gallery = ({images}: PropsFace) => {
 
     return (
         <section className={styles.blockImg}>
-            <img className={styles.mainPhoto} src={activePhoto} alt="mainPhoto"/>
+            <img className={styles.mainPhoto} src={activePhoto} alt="main Photo"/>
             <article className={styles.galleryPhoto}>
                 {
                     images.length > 1 &&
                     images?.map((img, i) => (
                         <div onClick={() => handleClickPhoto(i)} key={i}>
-                            <img src={img} alt={`productImg`}
+                            <img src={img} alt={`Product Image`}
                                  className={`${styles.smallPhoto} ${i === numberPhoto ? styles.activePhoto : null}`}/>
                         </div>
                     ))

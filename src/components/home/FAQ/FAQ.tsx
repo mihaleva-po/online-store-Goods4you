@@ -26,7 +26,7 @@ const Faq = () => {
     return (
         <section id="faq" className={styles.faq}>
             <div className={styles.container}>
-                <h1>FAQ</h1>
+                <h2>FAQ</h2>
                 {
                     data.map((el, i) => (
                         <article key={i}>

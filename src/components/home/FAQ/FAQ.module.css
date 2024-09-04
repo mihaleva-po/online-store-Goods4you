@@ -13,7 +13,7 @@
     flex-direction: column;
 }
 
-.container h1 {
+.container h2 {
     color: #FFF;
     font-size: 36px;
     font-style: normal;
@@ -26,7 +26,7 @@
 }
 
 @media (max-width: 1000px) {
-    .container h1 {
+    .container h2 {
         font-size: 3.6vw;
         padding: 5px;
     }

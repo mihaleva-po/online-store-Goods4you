@@ -3,7 +3,7 @@ import Rate from "../components/oneProduct/descProduct/rate/rate.tsx";
 
 
 interface RateProps {
-    rating: number | undefined
+    rating: number
 }
 
 const meta: Meta<typeof RateStory> = {

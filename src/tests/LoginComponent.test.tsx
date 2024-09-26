@@ -42,7 +42,7 @@ describe('Login Component', () => {
     it('обработка ошибок при входе', async () => {
         vi.mocked(useLoginUserMutation).mockReturnValue([
             vi.fn().mockRejectedValue(new Error('Login failed')),
-            {isLoading: false, error: 'Incorrect username or password'}
+            {isLoading: false, error: 'Incorrect username or password', reset: () => {}}
         ]);
 
         render(

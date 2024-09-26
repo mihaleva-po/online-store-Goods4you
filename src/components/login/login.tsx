@@ -9,14 +9,14 @@ import {useNavigate} from "react-router-dom";
 
 const validationSchema = Yup.object({
     login: Yup.string()
-        .required('Обязательное поле')
-        .min(4, 'Логин должен содержать не менее 4 символов')
-        .max(50, 'Логин должен содержать не более 50 символов'),
+        .required('Required field')
+        .min(4, 'The login must contain at least 4 characters')
+        .max(50, 'The login must contain no more than 50 characters'),
 
     password: Yup.string()
-        .required('Обязательное поле')
-        .min(6, 'Пароль должен содержать не менее 6 символов')
-        .max(60, 'Пароль должен содержать не более 60 символов'),
+        .required('Required field')
+        .min(6, 'The password must contain at least 6 characters')
+        .max(60, 'The password must contain no more than 60 characters'),
 });
 
 interface FormValues {

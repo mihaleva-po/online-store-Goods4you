@@ -26,6 +26,8 @@ const Catalog = () => {
         });
 
     useEffect(() => {
+        setSkip(0);
+        setAllProducts([]);
         if (data) {
             setAllProducts(prevProducts => [...prevProducts, ...data.products]);
         }
@@ -33,8 +35,6 @@ const Catalog = () => {
 
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(event.target.value);
-        setSkip(0);
-        setAllProducts([]);
     };
 
     const handleShowMore = () => {

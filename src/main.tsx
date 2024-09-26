@@ -29,7 +29,5 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </Provider>
         </HelmetProvider>
     </React.StrictMode>
-
-
     ,
 )

@@ -4,7 +4,7 @@
 логин: oliviaw
 пароль: oliviawpass
 
-Используется моковый API - [![DummyJSON]](https://dummyjson.com/docs)
+Используется моковый API - [DummyJSON](https://dummyjson.com/docs)
 
 ## Стек технологий
 <li>React</li>
